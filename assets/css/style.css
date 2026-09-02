@@ -259,13 +259,30 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.15rem;
   color: inherit;
 }
 .brand__mark { width: 34px; height: 34px; flex-shrink: 0; }
+.brand__text { display: flex; flex-direction: column; gap: 0.2rem; line-height: 1; }
+.brand__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.1;
+}
 .brand__suffix { color: var(--accent); }
+.brand__tagline {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.site-footer .brand__tagline,
+.section--dark .brand__tagline { color: var(--muted-on-dusk); }
+@media (max-width: 480px) {
+  .site-header .brand__tagline { display: none; }
+}
 .nav__links {
   display: flex;
   align-items: center;
