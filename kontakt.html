@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt – LM Digital</title>
+  <meta name="description" content="Kontaktiere LM Digital für ein unverbindliches Kennenlerngespräch zu deiner Website oder deinem Online-Marketing.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo-mark.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img class="brand__mark" src="assets/img/logo-mark.svg" alt="" width="34" height="34">
+        LM Digital
+      </a>
+      <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-links" aria-label="Menü öffnen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav__links" id="nav-links" data-nav-links aria-label="Hauptnavigation">
+        <a href="index.html">Home</a>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="leistungen.html">Leistungen</a>
+        <a href="kontakt.html" aria-current="page">Kontakt</a>
+        <a href="kontakt.html" class="btn btn--primary btn--sm nav__cta">Projekt anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Kontakt</span>
+        <h1>Lass uns über dein Projekt sprechen.</h1>
+        <p class="lead">
+          Schreib uns kurz, worum es geht – wir melden uns zeitnah für ein unverbindliches
+          Kennenlerngespräch bei dir.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid grid--2" style="align-items: start; gap: clamp(2rem, 4vw, 4rem);">
+        <div>
+          <h2 class="h3" style="margin-bottom: 1.5rem;">Projekt anfragen</h2>
+
+          <!--
+            Hinweis für die Umsetzung: Diese Seite ist ein statisches HTML-Formular ohne eigenes
+            Backend. Damit Anfragen tatsächlich ankommen, muss "action" unten auf einen echten
+            Formular-Endpunkt zeigen (z. B. Formspree, Netlify Forms o. Ä.). Details siehe README.md.
+          -->
+          <form class="form" data-contact-form action="https://formspree.io/f/REPLACE_ME" method="POST" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">E-Mail *</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="phone">Telefon <span class="hint">(optional)</span></label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel">
+              </div>
+              <div class="field">
+                <label for="interesse">Ich interessiere mich für</label>
+                <select id="interesse" name="interesse">
+                  <option value="webdesign">Webdesign &amp; Website</option>
+                  <option value="seo">SEO &amp; Online-Marketing</option>
+                  <option value="digitalpaket">Digitalpaket (Rundum-Sorglos)</option>
+                  <option value="sonstiges">Sonstiges</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Nachricht *</label>
+              <textarea id="message" name="message" required placeholder="Erzähl uns kurz von deinem Projekt und deinem Zeitrahmen."></textarea>
+            </div>
+
+            <!-- Honeypot-Feld gegen Spam-Bots: für Menschen unsichtbar, bleibt leer -->
+            <div class="visually-hidden" aria-hidden="true">
+              <label for="website">Firma (bitte leer lassen)</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field field--checkbox">
+              <input type="checkbox" id="privacy" name="privacy" required>
+              <label for="privacy">
+                Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin
+                damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage
+                gespeichert werden. *
+              </label>
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn--primary btn--arrow">Nachricht senden</button>
+            </div>
+
+            <div class="form-status" data-form-status role="status"></div>
+          </form>
+        </div>
+
+        <aside class="stack" style="gap: 1.75rem;">
+          <div class="card">
+            <span class="card__tag">Direkter Kontakt</span>
+            <ul class="card__list" style="margin-top: 1.1rem;">
+              <li><a href="mailto:kontakt@lm-digital.de">kontakt@lm-digital.de</a></li>
+              <li><a href="tel:+49000000000"><span class="placeholder">[Telefonnummer]</span></a></li>
+              <li><span class="placeholder">[Straße Hausnr., PLZ Ort]</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="card__tag">Erreichbarkeit</span>
+            <p style="margin-top: 0.9rem;"><span class="placeholder">[z. B. Mo–Fr, 9–17 Uhr]</span></p>
+            <p style="margin-top: 0.6rem;">Wir melden uns zeitnah bei dir zurück.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="brand">
+            <img class="brand__mark" src="assets/img/logo-mark.svg" alt="" width="34" height="34">
+            LM Digital
+          </a>
+          <p>Digitalstudio für Websites, die Klarheit schaffen – von der ersten Idee bis zum Go-Live und darüber hinaus.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Seiten</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><button type="button" class="cookie-settings-link" data-cookie-reopen>Cookie-Einstellungen</button></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="mailto:kontakt@lm-digital.de">kontakt@lm-digital.de</a></li>
+            <li><a href="tel:+49000000000">[Telefonnummer]</a></li>
+            <li>[Straße Hausnr., PLZ Ort]</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year></span> LM Digital — Alle Rechte vorbehalten.</span>
+        <span>Design &amp; Umsetzung: LM Digital</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" data-cookie-banner hidden role="dialog" aria-live="polite" aria-label="Cookie-Einstellungen">
+    <span class="cookie-banner__kicker">// Datenschutz</span>
+    <p>
+      Wir verwenden nur technisch notwendige Cookies, damit diese Seite funktioniert. Mit deiner
+      Zustimmung würden wir zusätzlich anonyme Statistik-Cookies setzen, um die Seite zu verbessern –
+      aktuell ist noch kein Statistik-Tool eingebunden. Mehr dazu in unserer
+      <a href="datenschutz.html">Datenschutzerklärung</a>.
+    </p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn--primary btn--sm" data-cookie-accept-all>Alle akzeptieren</button>
+      <button type="button" class="btn btn--ghost btn--sm" data-cookie-reject>Nur notwendige</button>
+      <button type="button" class="btn btn--ghost btn--sm" data-cookie-settings aria-expanded="false" aria-controls="cookie-prefs">Einstellungen</button>
+    </div>
+    <div class="cookie-banner__prefs" id="cookie-prefs" data-cookie-prefs hidden>
+      <div class="cookie-option">
+        <div>
+          <strong>Notwendig</strong>
+          <span>Für Grundfunktionen der Seite erforderlich, immer aktiv.</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" checked disabled>
+          <span class="switch__track"></span>
+        </label>
+      </div>
+      <div class="cookie-option">
+        <div>
+          <strong>Statistik</strong>
+          <span>Anonyme Reichweitenmessung – aktuell nicht aktiv genutzt.</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" data-cookie-stats>
+          <span class="switch__track"></span>
+        </label>
+      </div>
+      <button type="button" class="btn btn--primary btn--sm" data-cookie-save style="justify-self:start;">Auswahl speichern</button>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
