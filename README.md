@@ -1,6 +1,6 @@
-# LM Digital — Website
+# LuMa Digital — Website
 
-Statische Website für LM Digital: Home, Über uns, Leistungen, Kontakt,
+Statische Website für LuMa Digital: Home, Über uns, Leistungen, Kontakt,
 Impressum und Datenschutz, inklusive Cookie-Consent-Banner. Reines HTML/CSS/JS,
 kein Build-Schritt nötig.
 
@@ -60,8 +60,8 @@ abgemahnt werden.
 ### Kontaktdaten (Footer aller Seiten + `kontakt.html`)
 - Telefonnummer
 - Adresse
-- Die E-Mail-Adresse `kontakt@lm-digital.de` geht davon aus, dass die Domain
-  `lm-digital.de` verwendet wird — bei einer anderen Domain bitte in allen
+- Die E-Mail-Adresse `kontakt@luma-digital.de` geht davon aus, dass die Domain
+  `luma-digital.de` verwendet wird — bei einer anderen Domain bitte in allen
   Dateien austauschen (Suchen &amp; Ersetzen über alle `.html`-Dateien)
 
 ### Kontaktformular (`kontakt.html`)

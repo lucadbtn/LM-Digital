@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LM Digital — Design System
+   LuMa Digital — Design System
    Signal → Klarheit. Ein digitales Studio bringt Ordnung ins Rauschen.
    ========================================================================== */
 
@@ -71,9 +71,9 @@
   --paper-on-dusk: #f5f2ec;
   --muted-on-dusk: #9498a8;
 
-  --ember: #ff4d1f;
-  --ember-dark: #e13c12;
-  --ember-soft: #ffe3d6;
+  --accent: #4a7899;
+  --accent-dark: #355d78;
+  --accent-soft: #e1eaef;
 
   /* type */
   --font-display: "Bricolage Grotesque", "Arial Narrow", sans-serif;
@@ -125,7 +125,7 @@ button { font: inherit; cursor: pointer; }
 input, textarea, select { font: inherit; }
 
 :focus-visible {
-  outline: 2px solid var(--ember);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -156,11 +156,11 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   font-size: var(--fs-mono);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ember-dark);
+  color: var(--accent-dark);
   margin: 0 0 0.9rem;
 }
 .eyebrow::before { content: "//"; color: var(--muted); }
-.section--dark .eyebrow { color: var(--ember); }
+.section--dark .eyebrow { color: var(--accent); }
 .section--dark .eyebrow::before { color: var(--muted-on-dusk); }
 
 .muted { color: var(--muted); }
@@ -219,10 +219,10 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 .btn--primary {
-  background: var(--ember);
-  color: #fff8f4;
+  background: var(--accent);
+  color: #f6f9fb;
 }
-.btn--primary:hover { background: var(--ember-dark); }
+.btn--primary:hover { background: var(--accent-dark); }
 .btn--ghost {
   background: transparent;
   color: var(--ink);
@@ -262,9 +262,10 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--ink);
+  color: inherit;
 }
 .brand__mark { width: 34px; height: 34px; flex-shrink: 0; }
+.brand__suffix { color: var(--accent); }
 .nav__links {
   display: flex;
   align-items: center;
@@ -284,7 +285,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   position: absolute;
   left: 0; right: 0; bottom: -2px;
   height: 2px;
-  background: var(--ember);
+  background: var(--accent);
 }
 .nav__cta { margin-left: 0.5rem; }
 .nav__toggle {
@@ -360,7 +361,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   font-size: var(--fs-mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ember-dark);
+  color: var(--accent-dark);
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -370,13 +371,13 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   content: "";
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--ember);
-  box-shadow: 0 0 0 3px var(--ember-soft);
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 .hero h1 { font-size: var(--fs-hero); }
 .hero h1 em {
   font-style: normal;
-  color: var(--ember);
+  color: var(--accent);
 }
 .hero__lead { margin-top: 1.6rem; }
 .hero__actions { margin-top: 2.4rem; gap: 1rem; }
@@ -396,7 +397,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   color: var(--muted);
 }
 .trust-strip__list li { display: flex; align-items: center; gap: 0.55rem; }
-.trust-strip__list li::before { content: "◆"; font-size: 0.55rem; color: var(--ember); }
+.trust-strip__list li::before { content: "◆"; font-size: 0.55rem; color: var(--accent); }
 
 /* ---------- Cards ---------- */
 .card {
@@ -411,7 +412,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  color: var(--ember-dark);
+  color: var(--accent-dark);
   text-transform: uppercase;
 }
 .card h3 { margin-top: 0.85rem; }
@@ -429,7 +430,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   position: absolute;
   left: 0; top: 0.55em;
   width: 6px; height: 6px;
-  background: var(--ember);
+  background: var(--accent);
 }
 .card--dark {
   background: var(--dusk-2);
@@ -459,7 +460,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
 .process__num {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--ember);
+  color: var(--accent);
   display: block;
   margin-bottom: 1.5rem;
 }
@@ -504,7 +505,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
 }
 .footer__col li { margin-bottom: 0.65rem; }
 .footer__col a { font-size: 0.94rem; color: var(--paper-on-dusk); }
-.footer__col a:hover { color: var(--ember); }
+.footer__col a:hover { color: var(--accent); }
 .footer__bottom {
   display: flex;
   justify-content: space-between;
@@ -548,7 +549,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
 .field input:focus,
 .field textarea:focus,
 .field select:focus {
-  border-color: var(--ember);
+  border-color: var(--accent);
 }
 .field textarea { min-height: 140px; resize: vertical; }
 .field--checkbox {
@@ -557,7 +558,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   align-items: flex-start;
   gap: 0.7rem;
 }
-.field--checkbox input { width: auto; margin-top: 0.3rem; accent-color: var(--ember); }
+.field--checkbox input { width: auto; margin-top: 0.3rem; accent-color: var(--accent); }
 .field--checkbox label { font-weight: 400; font-size: 0.88rem; color: var(--ink-soft); }
 .form-status {
   font-size: 0.9rem;
@@ -581,10 +582,10 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
 .legal ul { margin-top: 0.75rem; }
 .legal li { padding-left: 1.2rem; position: relative; margin-bottom: 0.5rem; }
 .legal li::before { content: "–"; position: absolute; left: 0; color: var(--muted); }
-.legal a { color: var(--ember-dark); text-decoration: underline; text-underline-offset: 2px; }
+.legal a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 2px; }
 .placeholder {
-  background: var(--ember-soft);
-  color: var(--ember-dark);
+  background: var(--accent-soft);
+  color: var(--accent-dark);
   padding: 0.05em 0.4em;
   border-radius: 3px;
   font-family: var(--font-mono);
@@ -594,8 +595,8 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
 .legal-note {
   margin-top: 2.5rem;
   padding: 1.25rem 1.4rem;
-  border: 1px dashed var(--ember);
-  background: var(--ember-soft);
+  border: 1px dashed var(--accent);
+  background: var(--accent-soft);
   border-radius: var(--radius);
   font-size: 0.9rem;
 }
@@ -627,7 +628,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ember);
+  color: var(--accent);
   margin-bottom: 0.6rem;
   display: block;
 }
@@ -678,10 +679,10 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
   border-radius: 50%;
   transition: transform 0.2s var(--ease);
 }
-.switch input:checked + .switch__track { background: var(--ember); }
+.switch input:checked + .switch__track { background: var(--accent); }
 .switch input:checked + .switch__track::after { transform: translateX(18px); }
 .switch input:disabled + .switch__track { opacity: 0.5; }
-.switch input:focus-visible + .switch__track { outline: 2px solid var(--ember); outline-offset: 2px; }
+.switch input:focus-visible + .switch__track { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 @media (max-width: 480px) {
   .cookie-banner { padding: 1.25rem 1.25rem; left: 0.6rem; right: 0.6rem; bottom: 0.6rem; }
@@ -690,7 +691,7 @@ h3, .h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.005em; }
 /* ---------- Cookie settings link (footer) ---------- */
 .cookie-settings-link { background: none; border: none; padding: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .footer__col .cookie-settings-link { font-size: 0.94rem; color: var(--paper-on-dusk); }
-.footer__col .cookie-settings-link:hover { color: var(--ember); }
+.footer__col .cookie-settings-link:hover { color: var(--accent); }
 
 /* ---------- Utilities ---------- */
 .mt-0 { margin-top: 0; }

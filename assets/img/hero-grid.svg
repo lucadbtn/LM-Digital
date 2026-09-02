@@ -571,8 +571,8 @@
 <circle cx="1518.0" cy="920.0" r="1.70" fill="#1a160f" fill-opacity="0.34"/>
 <circle cx="1564.0" cy="920.0" r="1.70" fill="#1a160f" fill-opacity="0.34"/>
 <circle cx="1610.0" cy="920.0" r="1.70" fill="#1a160f" fill-opacity="0.34"/>
-<circle cx="1488.0" cy="270.0" r="3.2" fill="#ff4d1f" fill-opacity="0.85"/>
-<circle cx="1560.0" cy="495.0" r="4.4" fill="#ff4d1f" fill-opacity="0.85"/>
-<circle cx="1440.0" cy="648.0" r="3.2" fill="#ff4d1f" fill-opacity="0.85"/>
-<circle cx="1544.0" cy="180.0" r="3.2" fill="#ff4d1f" fill-opacity="0.85"/>
+<circle cx="1488.0" cy="270.0" r="3.2" fill="#4a7899" fill-opacity="0.85"/>
+<circle cx="1560.0" cy="495.0" r="4.4" fill="#4a7899" fill-opacity="0.85"/>
+<circle cx="1440.0" cy="648.0" r="3.2" fill="#4a7899" fill-opacity="0.85"/>
+<circle cx="1544.0" cy="180.0" r="3.2" fill="#4a7899" fill-opacity="0.85"/>
 </svg>

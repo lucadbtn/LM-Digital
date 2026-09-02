@@ -1,4 +1,4 @@
-// LM Digital — main.js
+// LuMa Digital — main.js
 // Mobile-Nav, Cookie-Consent und Kontaktformular. Kein Tracking, keine
 // Analytics-Skripte werden hier geladen — der Consent-Status wird nur
 // gespeichert, damit spätere Tools (siehe README) sich daran halten können.

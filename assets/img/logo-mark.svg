@@ -1,8 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img" aria-labelledby="lmdLogoTitle">
-  <title id="lmdLogoTitle">LM Digital</title>
-  <rect width="40" height="40" rx="9" fill="#1a160f"/>
-  <rect x="5" y="5" width="4" height="4" rx="1" fill="#f5f2ec" opacity="0.22"/>
-  <rect x="12" y="12" width="5" height="5" rx="1.2" fill="#f5f2ec" opacity="0.4"/>
-  <rect x="20" y="20" width="6" height="6" rx="1.4" fill="#f5f2ec" opacity="0.65"/>
-  <rect x="28.5" y="28.5" width="8" height="8" rx="2" fill="#ff4d1f"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="lumaLogoTitle">
+  <title id="lumaLogoTitle">LuMa Digital</title>
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="60" cy="60" r="60"/>
+    </clipPath>
+  </defs>
+  <circle cx="60" cy="60" r="60" fill="#4a7899"/>
+  <g clip-path="url(#circleClip)" fill="none" stroke="#f5f2ec" stroke-linecap="round">
+    <!-- arch spanning the first two columns -->
+    <path d="M 25 46 A 22 22 0 0 1 69 46" stroke-width="9"/>
+    <!-- vertical columns -->
+    <rect x="20.5" y="40" width="9" height="52" rx="2.5" fill="#f5f2ec" stroke="none"/>
+    <rect x="64.5" y="40" width="9" height="52" rx="2.5" fill="#f5f2ec" stroke="none"/>
+    <rect x="38" y="58" width="6" height="34" rx="2" fill="#f5f2ec" stroke="none"/>
+    <rect x="50" y="52" width="6" height="40" rx="2" fill="#f5f2ec" stroke="none"/>
+    <rect x="82" y="34" width="9" height="58" rx="2.5" fill="#f5f2ec" stroke="none"/>
+    <!-- base bracket uniting the two arch columns, evoking an "L" -->
+    <rect x="20.5" y="83" width="53" height="9" rx="2.5" fill="#f5f2ec" stroke="none"/>
+  </g>
 </svg>
