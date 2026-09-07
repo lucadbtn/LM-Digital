@@ -26,7 +26,11 @@ export default function KontaktPage() {
               <dt className="font-mono text-xs uppercase tracking-[0.15em] text-ink-soft">
                 E-Mail
               </dt>
-              <dd className="mt-1 text-ink">[E-Mail-Adresse eintragen]</dd>
+              <dd className="mt-1 text-ink">
+                <a href="mailto:kontakt@luma-digital.de" className="hover:text-signal">
+                  kontakt@luma-digital.de
+                </a>
+              </dd>
             </div>
             <div>
               <dt className="font-mono text-xs uppercase tracking-[0.15em] text-ink-soft">

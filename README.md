@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LuMa Digital – Website
 
-## Getting Started
+Next.js-Website für LuMa Digital, als statischer Export gebaut, damit sie auf
+klassischem PHP/Apache-Webhosting (Strato Hosting Basic) läuft.
 
-First, run the development server:
+## Entwicklung
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Läuft dann unter [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build & Deployment (Strato)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Strato Hosting Basic hat keine Node.js-Laufzeitumgebung, deshalb wird die
+Seite als statisches HTML exportiert und das Kontaktformular über ein
+PHP-Skript verschickt.
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Das erzeugt den fertigen Seiteninhalt im Ordner `out/`. Diesen kompletten
+Inhalt (inkl. `contact.php`) per FTP in das Webspace-Hauptverzeichnis bei
+Strato hochladen.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Vor dem ersten Livegang unbedingt prüfen:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `public/contact.php`: Empfänger-Adresse in `RECIPIENT` anpassen (aktuell
+  `kontakt@luma-digital.de` – dieses Postfach muss im Strato-Kundenmenü
+  unter „E-Mail“ angelegt sein, sonst laufen Anfragen ins Leere).
+- `src/app/kontakt/page.tsx`: Telefonnummer und Sitz eintragen.
+- `src/app/impressum/page.tsx` und `src/app/datenschutz/page.tsx`: alle
+  `[Platzhalter]` durch echte Angaben ersetzen und die Datenschutzerklärung
+  rechtlich prüfen lassen.
+- `public/logo.svg` (oder `.png`) mit dem echten Logo ergänzen und in
+  `src/components/Logo.tsx` einbinden – aktuell wird dort eine
+  nachgebaute Annäherung des Emblems gerendert.
+- Preise in `src/app/preise/page.tsx` und `src/app/page.tsx` sind
+  Platzhalter-Beträge und müssen bestätigt werden.
