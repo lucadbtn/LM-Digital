@@ -93,7 +93,7 @@ export function EditorialAbout() {
 
 export function EditorialMobile() {
   return (
-    <div className="flex justify-center bg-[#efece4] py-8">
+    <div className="aspect-[16/10] flex items-center justify-center bg-[#efece4] p-6 sm:p-10">
       <div className="w-40 rounded-[1.75rem] bg-white/40 p-3 text-[#2b2620] shadow-inner">
         <div className="text-center font-serif text-sm italic">Café Nordlicht</div>
         <h3 className="mt-6 text-center font-serif text-xl leading-tight">
@@ -204,7 +204,7 @@ export function BoldTrainers() {
 
 export function BoldMobile() {
   return (
-    <div className="flex justify-center bg-[#121212] py-8">
+    <div className="aspect-[16/10] flex items-center justify-center bg-[#121212] p-6 sm:p-10">
       <div className="w-40 rounded-[1.75rem] bg-white/5 p-3 text-white">
         <div className="text-center text-sm font-extrabold uppercase tracking-tight">
           Pulse
@@ -313,7 +313,7 @@ export function CorporateTeam() {
 
 export function CorporateMobile() {
   return (
-    <div className="flex justify-center bg-[#eef1f6] py-8">
+    <div className="aspect-[16/10] flex items-center justify-center bg-[#eef1f6] p-6 sm:p-10">
       <div className="w-40 rounded-[1.75rem] bg-white/60 p-3 text-[#1c2733] shadow-inner">
         <div className="text-center text-sm font-semibold tracking-tight">
           Nova Systems

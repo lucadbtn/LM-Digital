@@ -68,7 +68,7 @@ export default function LeistungenPage() {
       </section>
 
       {groups.map((g, i) => (
-        <section key={g.title} className={i % 2 === 1 ? "bg-vellum-raised" : "bg-vellum"}>
+        <section key={g.title} className={i % 2 === 0 ? "bg-vellum-raised" : "bg-vellum"}>
           <Container className="py-20">
             <Reveal className="grid gap-10 md:grid-cols-2 md:gap-16">
               <div>

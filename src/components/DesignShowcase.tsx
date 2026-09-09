@@ -23,7 +23,13 @@ export function DesignShowcase({ screens }: { screens: Screen[] }) {
           <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
         </div>
-        {screen.node}
+        <div className="grid">
+          {screens.map((s, i) => (
+            <div key={s.label} className={`col-start-1 row-start-1 ${i === index ? "" : "invisible"}`}>
+              {s.node}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="mt-4 flex items-center justify-between">
         <button

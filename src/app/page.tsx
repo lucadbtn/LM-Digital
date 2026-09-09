@@ -50,7 +50,12 @@ const process = [
 export default function Home() {
   return (
     <>
-      <section className="bg-vellum">
+      <section className="relative isolate overflow-hidden bg-vellum">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute inset-0 [background-image:radial-gradient(circle_at_1px_1px,rgba(29,29,31,0.07)_1px,transparent_0)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_60%_55%_at_50%_0%,black_45%,transparent_100%)]" />
+          <div className="absolute left-1/2 top-[-14rem] h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-steel/25 blur-[110px]" />
+          <div className="absolute right-[8%] top-16 h-64 w-64 rounded-full bg-signal/10 blur-[90px]" />
+        </div>
         <Container className="flex flex-col items-center py-24 text-center md:py-32">
           <h1 className="max-w-3xl font-display text-5xl font-bold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl">
             Websites, die Ihr Unternehmen wirklich voranbringen.
