@@ -3,7 +3,7 @@
 
 export function EditorialDesktop() {
   return (
-    <div className="aspect-[16/10] bg-[#efece4] p-6 text-[#2b2620] sm:p-10">
+    <div className="h-full bg-[#efece4] p-6 text-[#2b2620] sm:p-10">
       <div className="flex items-center justify-between">
         <span className="font-serif text-lg italic">Café Nordlicht</span>
         <div className="hidden gap-6 text-xs tracking-wide sm:flex">
@@ -42,7 +42,7 @@ export function EditorialMenu() {
     ["Zitronentee", "3,50 €"],
   ];
   return (
-    <div className="aspect-[16/10] bg-[#efece4] p-6 text-[#2b2620] sm:p-10">
+    <div className="h-full bg-[#efece4] p-6 text-[#2b2620] sm:p-10">
       <div className="flex items-center justify-between">
         <span className="font-serif text-lg italic">Café Nordlicht</span>
         <div className="hidden gap-6 text-xs tracking-wide sm:flex">
@@ -66,7 +66,7 @@ export function EditorialMenu() {
 
 export function EditorialAbout() {
   return (
-    <div className="aspect-[16/10] bg-[#efece4] p-6 text-[#2b2620] sm:p-10">
+    <div className="h-full bg-[#efece4] p-6 text-[#2b2620] sm:p-10">
       <div className="flex items-center justify-between">
         <span className="font-serif text-lg italic">Café Nordlicht</span>
         <div className="hidden gap-6 text-xs tracking-wide sm:flex">
@@ -93,7 +93,7 @@ export function EditorialAbout() {
 
 export function EditorialMobile() {
   return (
-    <div className="aspect-[16/10] flex items-center justify-center bg-[#efece4] p-6 sm:p-10">
+    <div className="h-full flex items-center justify-center bg-[#efece4] p-6 sm:p-10">
       <div className="w-40 rounded-[1.75rem] bg-white/40 p-3 text-[#2b2620] shadow-inner">
         <div className="text-center font-serif text-sm italic">Café Nordlicht</div>
         <h3 className="mt-6 text-center font-serif text-xl leading-tight">
@@ -110,7 +110,7 @@ export function EditorialMobile() {
 
 export function BoldDesktop() {
   return (
-    <div className="aspect-[16/10] bg-[#121212] p-6 text-white sm:p-10">
+    <div className="h-full bg-[#121212] p-6 text-white sm:p-10">
       <div className="flex items-center justify-between">
         <span className="text-lg font-extrabold uppercase tracking-tight">Pulse</span>
         <div className="hidden gap-6 text-xs uppercase tracking-wide text-white/60 sm:flex">
@@ -150,7 +150,7 @@ export function BoldSchedule() {
     ["Freitag", "17:00", "HIIT"],
   ];
   return (
-    <div className="aspect-[16/10] bg-[#121212] p-6 text-white sm:p-10">
+    <div className="h-full bg-[#121212] p-6 text-white sm:p-10">
       <div className="flex items-center justify-between">
         <span className="text-lg font-extrabold uppercase tracking-tight">Pulse</span>
         <div className="hidden gap-6 text-xs uppercase tracking-wide text-white/60 sm:flex">
@@ -177,7 +177,7 @@ export function BoldSchedule() {
 
 export function BoldTrainers() {
   return (
-    <div className="aspect-[16/10] bg-[#121212] p-6 text-white sm:p-10">
+    <div className="h-full bg-[#121212] p-6 text-white sm:p-10">
       <div className="flex items-center justify-between">
         <span className="text-lg font-extrabold uppercase tracking-tight">Pulse</span>
         <div className="hidden gap-6 text-xs uppercase tracking-wide text-white/60 sm:flex">
@@ -204,7 +204,7 @@ export function BoldTrainers() {
 
 export function BoldMobile() {
   return (
-    <div className="aspect-[16/10] flex items-center justify-center bg-[#121212] p-6 sm:p-10">
+    <div className="h-full flex items-center justify-center bg-[#121212] p-6 sm:p-10">
       <div className="w-40 rounded-[1.75rem] bg-white/5 p-3 text-white">
         <div className="text-center text-sm font-extrabold uppercase tracking-tight">
           Pulse
@@ -223,7 +223,7 @@ export function BoldMobile() {
 
 export function CorporateDesktop() {
   return (
-    <div className="aspect-[16/10] bg-[#eef1f6] p-6 text-[#1c2733] sm:p-10">
+    <div className="h-full bg-[#eef1f6] p-6 text-[#1c2733] sm:p-10">
       <div className="flex items-center justify-between">
         <span className="text-base font-semibold tracking-tight">Nova Systems</span>
         <div className="hidden gap-6 text-xs text-[#1c2733]/60 sm:flex">
@@ -263,7 +263,7 @@ export function CorporateFeatures() {
     ["Integrationen", "Anbindung an gängige Tools per API"],
   ];
   return (
-    <div className="aspect-[16/10] bg-[#eef1f6] p-6 text-[#1c2733] sm:p-10">
+    <div className="h-full bg-[#eef1f6] p-6 text-[#1c2733] sm:p-10">
       <div className="flex items-center justify-between">
         <span className="text-base font-semibold tracking-tight">Nova Systems</span>
         <div className="hidden gap-6 text-xs text-[#1c2733]/60 sm:flex">
@@ -287,7 +287,7 @@ export function CorporateFeatures() {
 
 export function CorporateTeam() {
   return (
-    <div className="aspect-[16/10] bg-[#eef1f6] p-6 text-[#1c2733] sm:p-10">
+    <div className="h-full bg-[#eef1f6] p-6 text-[#1c2733] sm:p-10">
       <div className="flex items-center justify-between">
         <span className="text-base font-semibold tracking-tight">Nova Systems</span>
         <div className="hidden gap-6 text-xs text-[#1c2733]/60 sm:flex">
@@ -313,7 +313,7 @@ export function CorporateTeam() {
 
 export function CorporateMobile() {
   return (
-    <div className="aspect-[16/10] flex items-center justify-center bg-[#eef1f6] p-6 sm:p-10">
+    <div className="h-full flex items-center justify-center bg-[#eef1f6] p-6 sm:p-10">
       <div className="w-40 rounded-[1.75rem] bg-white/60 p-3 text-[#1c2733] shadow-inner">
         <div className="text-center text-sm font-semibold tracking-tight">
           Nova Systems
