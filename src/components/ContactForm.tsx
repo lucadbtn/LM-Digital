@@ -29,10 +29,10 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="border border-line bg-vellum-raised/60 p-8 font-sans text-ink">
-        <p className="font-display text-lg font-bold">Nachricht gesendet.</p>
+      <div className="rounded-2xl bg-vellum-raised p-8">
+        <p className="font-display text-lg font-bold text-ink">Nachricht gesendet.</p>
         <p className="mt-2 text-sm text-ink-soft">
-          Danke für Ihre Anfrage — wir melden uns in der Regel innerhalb von
+          Danke für Ihre Anfrage. Wir melden uns in der Regel innerhalb von
           einem Werktag.
         </p>
       </div>
@@ -50,25 +50,25 @@ export function ContactForm() {
         <Field label="Telefon" name="phone" type="tel" />
       </div>
       <label className="flex flex-col gap-2">
-        <span className="font-mono text-xs uppercase tracking-[0.15em] text-ink-soft">
+        <span className="text-xs uppercase tracking-wide text-ink-soft">
           Nachricht
         </span>
         <textarea
           name="message"
           required
           rows={5}
-          className="border border-ink/20 bg-vellum px-4 py-3 font-sans text-sm text-ink outline-none focus:border-steel"
+          className="rounded-xl bg-vellum-raised px-4 py-3 text-sm text-ink outline-none focus:ring-2 focus:ring-steel"
         />
       </label>
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex items-center justify-center gap-2 rounded-sm bg-ink px-6 py-3 font-sans text-sm font-semibold text-vellum transition-colors hover:bg-signal disabled:opacity-60"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-vellum transition-colors hover:bg-steel-deep disabled:opacity-60"
       >
         {status === "sending" ? "Wird gesendet…" : "Nachricht senden"}
       </button>
       {status === "error" && (
-        <p className="font-sans text-sm text-signal">
+        <p className="text-sm text-signal">
           Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben
           Sie uns direkt per E-Mail.
         </p>
@@ -90,7 +90,7 @@ function Field({
 }) {
   return (
     <label className="flex flex-col gap-2">
-      <span className="font-mono text-xs uppercase tracking-[0.15em] text-ink-soft">
+      <span className="text-xs uppercase tracking-wide text-ink-soft">
         {label}
         {required && " *"}
       </span>
@@ -98,7 +98,7 @@ function Field({
         type={type}
         name={name}
         required={required}
-        className="border border-ink/20 bg-vellum px-4 py-3 font-sans text-sm text-ink outline-none focus:border-steel"
+        className="rounded-xl bg-vellum-raised px-4 py-3 text-sm text-ink outline-none focus:ring-2 focus:ring-steel"
       />
     </label>
   );

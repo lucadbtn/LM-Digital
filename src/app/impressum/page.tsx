@@ -12,13 +12,13 @@ export default function ImpressumPage() {
       <h1 className="font-display text-3xl font-bold tracking-tight text-ink">
         Impressum
       </h1>
-      <div className="mt-4 border-l-2 border-signal bg-vellum-raised/60 p-4 font-sans text-sm text-ink-soft">
+      <div className="mt-4 rounded-xl bg-vellum-raised p-4 text-sm text-ink-soft">
         Platzhalter-Vorlage nach § 5 TMG / § 18 Abs. 2 MStV. Bitte mit den
         tatsächlichen Unternehmensdaten füllen und rechtlich prüfen lassen,
         bevor die Seite veröffentlicht wird.
       </div>
 
-      <div className="mt-10 space-y-8 font-sans text-sm leading-relaxed text-ink">
+      <div className="mt-10 space-y-8 text-sm leading-relaxed text-ink">
         <section>
           <h2 className="font-display text-lg font-bold">Angaben gemäß § 5 TMG</h2>
           <p className="mt-2">
@@ -73,7 +73,7 @@ export default function ImpressumPage() {
             Online-Streitbeilegung (OS) bereit:{" "}
             <a
               href="https://ec.europa.eu/consumers/odr/"
-              className="underline decoration-signal underline-offset-4"
+              className="underline decoration-steel underline-offset-4"
             >
               https://ec.europa.eu/consumers/odr/
             </a>

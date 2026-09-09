@@ -17,8 +17,7 @@ export function Container({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-steel-deep">
-      <span className="h-px w-6 bg-signal" />
+    <span className="text-sm font-semibold uppercase tracking-wide text-steel-deep">
       {children}
     </span>
   );
@@ -32,16 +31,26 @@ export function Button({
 }: {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "inverse" | "ghost";
   className?: string;
 }) {
+  if (variant === "ghost") {
+    return (
+      <Link
+        href={href}
+        className={`inline-flex items-center gap-1 font-sans text-base font-medium text-steel-deep transition-colors hover:text-ink ${className}`}
+      >
+        {children}
+        <span aria-hidden="true">›</span>
+      </Link>
+    );
+  }
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 font-sans text-sm font-semibold tracking-wide transition-colors duration-150";
+    "inline-flex items-center justify-center rounded-full px-7 py-3 font-sans text-base font-medium transition-colors duration-150";
   const variants: Record<string, string> = {
-    primary: "bg-ink text-vellum hover:bg-signal",
-    secondary:
-      "border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-vellum",
-    ghost: "text-ink underline decoration-signal decoration-2 underline-offset-4 hover:text-signal",
+    primary: "bg-ink text-vellum hover:bg-steel-deep",
+    secondary: "bg-vellum-raised text-ink hover:bg-line/60",
+    inverse: "bg-vellum text-ink hover:bg-vellum-raised",
   };
   return (
     <Link href={href} className={`${base} ${variants[variant]} ${className}`}>
@@ -50,25 +59,11 @@ export function Button({
   );
 }
 
-export function CornerTicks({ dark = false }: { dark?: boolean }) {
-  const color = dark ? "border-vellum/25" : "border-ink/20";
-  return (
-    <>
-      <span className={`pointer-events-none absolute left-0 top-0 h-4 w-4 border-l border-t ${color}`} />
-      <span className={`pointer-events-none absolute right-0 top-0 h-4 w-4 border-r border-t ${color}`} />
-      <span className={`pointer-events-none absolute bottom-0 left-0 h-4 w-4 border-b border-l ${color}`} />
-      <span className={`pointer-events-none absolute bottom-0 right-0 h-4 w-4 border-b border-r ${color}`} />
-    </>
-  );
-}
-
 export function SpecStat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="border-l border-ink/15 pl-4">
-      <div className="font-display text-2xl font-bold text-ink">{value}</div>
-      <div className="font-mono text-[11px] uppercase tracking-[0.15em] text-ink-soft">
-        {label}
-      </div>
+    <div>
+      <div className="font-display text-3xl font-bold text-ink">{value}</div>
+      <div className="mt-1 text-sm text-ink-soft">{label}</div>
     </div>
   );
 }

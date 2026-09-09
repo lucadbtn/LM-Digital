@@ -7,7 +7,7 @@ const BASE_URL = "https://luma-digital.de";
 const routes = [
   "",
   "/leistungen",
-  "/preise",
+  "/beispiele",
   "/referenzen",
   "/ueber-uns",
   "/kontakt",

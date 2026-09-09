@@ -1,27 +1,22 @@
-import { Container, Eyebrow, Button, SpecStat, CornerTicks } from "@/components/ui";
-import { Colonnade } from "@/components/Colonnade";
-import Link from "next/link";
+import { Container, Eyebrow, Button } from "@/components/ui";
+import { Reveal } from "@/components/Reveal";
 
 const services = [
   {
-    n: "Websites",
     title: "Websites",
-    desc: "Onepager, Business-Websites und Onlineshops – schnell, sauber programmiert und auf Google optimiert.",
+    desc: "Onepager, Business-Websites und Onlineshops. Schnell, sauber programmiert und auf Google optimiert.",
   },
   {
-    n: "SEO",
     title: "SEO",
     desc: "Lokale und überregionale Suchmaschinenoptimierung, damit Kundschaft Sie findet, bevor sie zur Konkurrenz geht.",
   },
   {
-    n: "Marketing",
     title: "Online-Marketing",
-    desc: "Google Ads, Social-Media-Kampagnen und Google Business Profil – zielgerichtet statt Gießkanne.",
+    desc: "Google Ads, Social-Media-Kampagnen und Google Business Profil, zielgerichtet statt mit der Gießkanne.",
   },
   {
-    n: "Support",
     title: "Wartung & Support",
-    desc: "Hosting, Updates, Sicherheit und Änderungen laufend betreut – ein Ansprechpartner, keine Warteschleife.",
+    desc: "Hosting, Updates, Sicherheit und Änderungen laufend betreut. Ein Ansprechpartner, keine Warteschleife.",
   },
 ];
 
@@ -32,7 +27,7 @@ const reasons = [
   },
   {
     title: "Schnelle Umsetzung",
-    desc: "Launch in Wochen statt Monaten – ohne Abstriche bei Qualität oder Performance.",
+    desc: "Launch in wenigen Wochen, ohne Abstriche bei Qualität oder Performance.",
   },
   {
     title: "Ein Ansprechpartner",
@@ -40,170 +35,151 @@ const reasons = [
   },
   {
     title: "Gebaut für Google",
-    desc: "Technisch sauber, schnell ladend und SEO-optimiert von der ersten Zeile Code an.",
+    desc: "Technisch sauber, schnell ladend und von der ersten Zeile Code an für SEO optimiert.",
   },
 ];
 
 const process = [
-  { step: "01", title: "Analyse & Beratung", desc: "Wir klären Ziele, Zielgruppe und Budget in einem kostenlosen Erstgespräch." },
-  { step: "02", title: "Design", desc: "Ein individuelles Design-Konzept, abgestimmt auf Ihre Marke – kein Baukasten-Look." },
-  { step: "03", title: "Entwicklung", desc: "Saubere, schnelle Umsetzung mit modernen Web-Technologien." },
-  { step: "04", title: "SEO-Setup", desc: "Technisches SEO, lokale Auffindbarkeit und Google Business Profil von Anfang an." },
-  { step: "05", title: "Launch & Betreuung", desc: "Live-Schaltung und laufende Betreuung, damit Ihre Website weiter performt." },
+  { step: "1", title: "Analyse & Beratung", desc: "Wir klären Ziele, Zielgruppe und Budget in einem kostenlosen Erstgespräch." },
+  { step: "2", title: "Design", desc: "Ein individuelles Design-Konzept, abgestimmt auf Ihre Marke. Kein Baukasten-Look." },
+  { step: "3", title: "Entwicklung", desc: "Saubere, schnelle Umsetzung mit modernen Web-Technologien." },
+  { step: "4", title: "SEO-Setup", desc: "Technisches SEO, lokale Auffindbarkeit und Google Business Profil von Anfang an." },
+  { step: "5", title: "Launch & Betreuung", desc: "Live-Schaltung und laufende Betreuung, damit Ihre Website weiter performt." },
 ];
 
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line">
-        <Colonnade className="pointer-events-none absolute inset-x-0 bottom-0 h-40 w-full md:h-56" />
-        <Container className="relative py-20 md:py-28">
-          <Eyebrow>Websites · SEO · Online-Marketing</Eyebrow>
-          <h1 className="mt-6 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl md:text-6xl">
-            Professionelle Websites, die sich jedes Unternehmen leisten kann.
+      <section className="bg-vellum">
+        <Container className="flex flex-col items-center py-24 text-center md:py-32">
+          <h1 className="max-w-3xl font-display text-5xl font-bold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl">
+            Websites, die Ihr Unternehmen wirklich voranbringen.
           </h1>
-          <p className="mt-6 max-w-xl font-sans text-lg leading-relaxed text-ink-soft">
-            LuMa Digital baut moderne, schnelle Websites für B2B- und
-            B2C-Unternehmen – inklusive SEO und Online-Marketing. Fair
-            kalkuliert, ohne Agentur-Overhead.
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft md:text-xl">
+            Professionelle Websites, SEO und Online-Marketing für B2B- und
+            B2C-Unternehmen. Fair kalkuliert und schnell umgesetzt.
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-6">
             <Button href="/kontakt" variant="primary">
-              Kostenlose Erstberatung
+              Beratung anfragen
             </Button>
-            <Button href="/preise" variant="secondary">
-              Preise ansehen
-            </Button>
-          </div>
-          <div className="mt-16 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-3">
-            <SpecStat value="ab 990 €" label="Einstiegspreis" />
-            <SpecStat value="2–4 Wo." label="Bis zum Launch" />
-            <SpecStat value="1" label="Fester Ansprechpartner" />
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-b border-line bg-vellum-raised/60">
-        <Container className="py-8">
-          <p className="text-center font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
-            Gebaut für Handwerk, Gastronomie, Einzelhandel und B2B-Dienstleister
-          </p>
-        </Container>
-      </section>
-
-      <section id="leistungen" className="border-b border-line">
-        <Container className="py-20">
-          <Eyebrow>Leistungen</Eyebrow>
-          <h2 className="mt-4 max-w-xl font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
-            Alles aus einer Hand
-          </h2>
-          <div className="mt-12 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((s) => (
-              <div key={s.title} className="flex flex-col gap-4 bg-vellum p-7">
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-signal">
-                  {s.n}
-                </span>
-                <h3 className="font-display text-xl font-bold text-ink">{s.title}</h3>
-                <p className="font-sans text-sm leading-relaxed text-ink-soft">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8">
             <Button href="/leistungen" variant="ghost">
-              Alle Leistungen im Detail →
+              Leistungen ansehen
             </Button>
           </div>
         </Container>
       </section>
 
-      <section className="border-b border-line">
-        <Container className="py-20">
-          <Eyebrow>Warum LuMa Digital</Eyebrow>
-          <h2 className="mt-4 max-w-xl font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
-            Agentur-Qualität, ohne Agentur-Preis
-          </h2>
-          <div className="mt-12 grid gap-10 sm:grid-cols-2">
-            {reasons.map((r) => (
-              <div key={r.title} className="border-l-2 border-steel pl-6">
+      <section className="bg-vellum-raised">
+        <Container className="grid grid-cols-1 gap-10 py-14 text-center sm:grid-cols-3">
+          {[
+            { value: "2 bis 4 Wochen", label: "bis zum Launch" },
+            { value: "1", label: "fester Ansprechpartner" },
+            { value: "100 %", label: "auf Google optimiert" },
+          ].map((s) => (
+            <div key={s.label}>
+              <div className="font-display text-2xl font-bold text-ink md:text-3xl">{s.value}</div>
+              <div className="mt-1 text-sm text-ink-soft">{s.label}</div>
+            </div>
+          ))}
+        </Container>
+      </section>
+
+      <section id="leistungen" className="bg-vellum">
+        <Container className="py-24">
+          <Reveal className="text-center">
+            <Eyebrow>Leistungen</Eyebrow>
+            <h2 className="mx-auto mt-4 max-w-xl font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
+              Alles aus einer Hand
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 80}>
+                <div className="h-full rounded-2xl bg-vellum-raised p-7">
+                  <h3 className="font-display text-lg font-bold text-ink">{s.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">{s.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Button href="/leistungen" variant="ghost">
+              Alle Leistungen im Detail
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-vellum-raised">
+        <Container className="py-24">
+          <Reveal className="text-center">
+            <Eyebrow>Warum LuMa Digital</Eyebrow>
+            <h2 className="mx-auto mt-4 max-w-xl font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
+              Agenturqualität, ohne Agenturpreis
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2">
+            {reasons.map((r, i) => (
+              <Reveal key={r.title} delay={i * 80}>
                 <h3 className="font-display text-lg font-bold text-ink">{r.title}</h3>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-ink-soft">{r.desc}</p>
-              </div>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{r.desc}</p>
+              </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="border-b border-line bg-vellum-raised/60">
-        <Container className="py-20">
-          <Eyebrow>Ablauf</Eyebrow>
-          <h2 className="mt-4 max-w-xl font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
-            Von der Idee bis zum Livegang
-          </h2>
-          <ol className="mt-12 grid gap-10 md:grid-cols-5">
-            {process.map((p) => (
-              <li key={p.step} className="relative">
-                <span className="font-mono text-sm text-steel">{p.step}</span>
-                <h3 className="mt-2 font-display text-base font-bold text-ink">{p.title}</h3>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-ink-soft">{p.desc}</p>
-              </li>
+      <section className="bg-vellum">
+        <Container className="py-24">
+          <Reveal className="text-center">
+            <Eyebrow>Ablauf</Eyebrow>
+            <h2 className="mx-auto mt-4 max-w-xl font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
+              Von der Idee bis zum Livegang
+            </h2>
+          </Reveal>
+          <ol className="mt-14 grid gap-10 md:grid-cols-5">
+            {process.map((p, i) => (
+              <Reveal key={p.step} delay={i * 80}>
+                <li>
+                  <span className="font-display text-2xl font-light text-steel">{p.step}</span>
+                  <h3 className="mt-2 font-display text-base font-bold text-ink">{p.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">{p.desc}</p>
+                </li>
+              </Reveal>
             ))}
           </ol>
         </Container>
       </section>
 
-      <section className="border-b border-line">
-        <Container className="py-20">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <Eyebrow>Preise</Eyebrow>
-              <h2 className="mt-4 max-w-xl font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
-                Transparent kalkuliert
-              </h2>
+      <section className="bg-vellum-raised">
+        <Container className="py-24 text-center">
+          <Reveal>
+            <Eyebrow>Design-Beispiele</Eyebrow>
+            <h2 className="mx-auto mt-4 max-w-xl font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
+              Sehen Sie sich mögliche Design-Richtungen an
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg text-ink-soft">
+              Drei komplett unterschiedliche Stilrichtungen zum Durchklicken,
+              damit Sie ein Gefühl dafür bekommen, wie Ihre Website aussehen
+              könnte.
+            </p>
+            <div className="mt-8">
+              <Button href="/beispiele" variant="primary">
+                Beispiele ansehen
+              </Button>
             </div>
-            <Link
-              href="/preise"
-              className="font-sans text-sm font-semibold text-steel-deep underline decoration-signal decoration-2 underline-offset-4"
-            >
-              Alle Pakete im Detail →
-            </Link>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              { name: "Starter", price: "ab 990 €", desc: "Onepager für Selbstständige & kleine Betriebe." },
-              { name: "Business", price: "ab 2.490 €", desc: "Bis zu 5 Unterseiten, ideal für KMU.", highlight: true },
-              { name: "Premium", price: "ab 4.990 €", desc: "Individuelles Design, Shop & erweiterte Funktionen." },
-            ].map((tier) => (
-              <div
-                key={tier.name}
-                className={`relative border p-7 ${
-                  tier.highlight ? "border-ink bg-ink text-vellum" : "border-line"
-                }`}
-              >
-                {tier.highlight && <CornerTicks dark />}
-                <div className="font-mono text-xs uppercase tracking-[0.2em] opacity-70">
-                  {tier.name}
-                </div>
-                <div className="mt-3 font-display text-2xl font-bold">{tier.price}</div>
-                <p
-                  className={`mt-3 font-sans text-sm leading-relaxed ${
-                    tier.highlight ? "text-vellum/75" : "text-ink-soft"
-                  }`}
-                >
-                  {tier.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          </Reveal>
         </Container>
       </section>
 
       <section className="bg-ink text-vellum">
-        <Container className="flex flex-col items-start gap-8 py-20 md:flex-row md:items-center md:justify-between">
+        <Container className="flex flex-col items-center gap-8 py-24 text-center">
           <h2 className="max-w-xl font-display text-3xl font-bold tracking-tight md:text-4xl">
             Bereit für eine Website, die verkauft?
           </h2>
-          <Button href="/kontakt" variant="primary" className="bg-signal text-vellum hover:bg-vellum hover:text-ink">
-            Kostenlose Erstberatung
+          <Button href="/kontakt" variant="inverse">
+            Beratung anfragen
           </Button>
         </Container>
       </section>

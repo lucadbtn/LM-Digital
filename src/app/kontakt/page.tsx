@@ -9,37 +9,37 @@ export const metadata: Metadata = {
 
 export default function KontaktPage() {
   return (
-    <section className="border-b border-line">
-      <Container className="grid gap-12 py-20 md:grid-cols-[1fr_1.2fr] md:py-24">
+    <section className="bg-vellum">
+      <Container className="grid gap-12 py-20 md:grid-cols-[1fr_1.2fr] md:py-28">
         <div>
           <Eyebrow>Kontakt</Eyebrow>
           <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             Lassen Sie uns sprechen
           </h1>
-          <p className="mt-6 max-w-sm font-sans text-lg leading-relaxed text-ink-soft">
-            Kostenlos, unverbindlich, ohne Verkaufsdruck. Schreiben Sie uns
-            kurz, worum es geht — wir melden uns in der Regel innerhalb
-            eines Werktags.
+          <p className="mt-6 max-w-sm text-lg leading-relaxed text-ink-soft">
+            Kostenlos, unverbindlich und ohne Verkaufsdruck. Schreiben Sie uns
+            kurz, worum es geht. Wir melden uns in der Regel innerhalb eines
+            Werktags.
           </p>
-          <dl className="mt-10 flex flex-col gap-4 font-sans text-sm">
+          <dl className="mt-10 flex flex-col gap-4 text-sm">
             <div>
-              <dt className="font-mono text-xs uppercase tracking-[0.15em] text-ink-soft">
+              <dt className="text-xs uppercase tracking-wide text-ink-soft">
                 E-Mail
               </dt>
               <dd className="mt-1 text-ink">
-                <a href="mailto:kontakt@luma-digital.de" className="hover:text-signal">
+                <a href="mailto:kontakt@luma-digital.de" className="hover:text-steel-deep">
                   kontakt@luma-digital.de
                 </a>
               </dd>
             </div>
             <div>
-              <dt className="font-mono text-xs uppercase tracking-[0.15em] text-ink-soft">
+              <dt className="text-xs uppercase tracking-wide text-ink-soft">
                 Telefon
               </dt>
               <dd className="mt-1 text-ink">[Telefonnummer eintragen]</dd>
             </div>
             <div>
-              <dt className="font-mono text-xs uppercase tracking-[0.15em] text-ink-soft">
+              <dt className="text-xs uppercase tracking-wide text-ink-soft">
                 Sitz
               </dt>
               <dd className="mt-1 text-ink">[Ort eintragen]</dd>

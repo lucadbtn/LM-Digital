@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --color-ink: #161a1f;
-  --color-ink-soft: #3a4048;
-  --color-vellum: #f2efe6;
-  --color-vellum-raised: #eae5d6;
+  color-scheme: light;
+
+  --color-ink: #1d1d1f;
+  --color-ink-soft: #6e6e73;
+  --color-vellum: #ffffff;
+  --color-vellum-raised: #f5f5f7;
   --color-steel: #4b7a9e;
-  --color-steel-deep: #28455c;
+  --color-steel-deep: #2f5875;
   --color-signal: #c1502e;
-  --color-line: #d8d2c2;
-  --color-line-dark: #38414a;
+  --color-line: #d2d2d7;
+  --color-line-dark: rgba(255, 255, 255, 0.14);
 }
 
 @theme inline {
@@ -23,9 +25,8 @@
   --color-line: var(--color-line);
   --color-line-dark: var(--color-line-dark);
 
-  --font-display: var(--font-space-grotesk);
-  --font-sans: var(--font-plex-sans);
-  --font-mono: var(--font-plex-mono);
+  --font-display: var(--font-manrope);
+  --font-sans: var(--font-manrope);
 }
 
 html {
@@ -39,13 +40,24 @@ body {
 }
 
 ::selection {
-  background: var(--color-signal);
+  background: var(--color-steel);
   color: var(--color-vellum);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-signal);
+  outline: 2px solid var(--color-steel-deep);
   outline-offset: 3px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -59,5 +71,9 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

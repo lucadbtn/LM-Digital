@@ -36,7 +36,7 @@ export function Logo({
           </div>
           {tagline && (
             <span
-              className={`mt-1 font-mono text-[10px] uppercase tracking-[0.2em] ${
+              className={`mt-1 text-[10px] uppercase tracking-[0.2em] ${
                 dark ? "text-vellum/60" : "text-ink-soft"
               }`}
             >

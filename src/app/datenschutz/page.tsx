@@ -12,14 +12,14 @@ export default function DatenschutzPage() {
       <h1 className="font-display text-3xl font-bold tracking-tight text-ink">
         Datenschutzerklärung
       </h1>
-      <div className="mt-4 border-l-2 border-signal bg-vellum-raised/60 p-4 font-sans text-sm text-ink-soft">
+      <div className="mt-4 rounded-xl bg-vellum-raised p-4 text-sm text-ink-soft">
         Diese Vorlage deckt typische Punkte einer DSGVO-Datenschutzerklärung
         ab, ersetzt aber keine rechtliche Prüfung. Bitte vor Veröffentlichung
         von einer fachkundigen Stelle (z. B. Datenschutzbeauftragte/r oder
         Rechtsberatung) prüfen und mit den tatsächlichen Angaben füllen.
       </div>
 
-      <div className="mt-10 space-y-8 font-sans text-sm leading-relaxed text-ink">
+      <div className="mt-10 space-y-8 text-sm leading-relaxed text-ink">
         <section>
           <h2 className="font-display text-lg font-bold">1. Verantwortlicher</h2>
           <p className="mt-2">
