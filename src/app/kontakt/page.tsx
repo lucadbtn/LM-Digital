@@ -36,13 +36,17 @@ export default function KontaktPage() {
               <dt className="text-xs uppercase tracking-wide text-ink-soft">
                 Telefon
               </dt>
-              <dd className="mt-1 text-ink">[Telefonnummer eintragen]</dd>
+              <dd className="mt-1 text-ink">
+                <a href="tel:1234567890" className="hover:text-steel-deep">
+                  1234567890
+                </a>
+              </dd>
             </div>
             <div>
               <dt className="text-xs uppercase tracking-wide text-ink-soft">
                 Sitz
               </dt>
-              <dd className="mt-1 text-ink">[Ort eintragen]</dd>
+              <dd className="mt-1 text-ink">11111 Musterhausen</dd>
             </div>
           </dl>
         </div>

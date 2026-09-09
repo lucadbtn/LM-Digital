@@ -13,34 +13,35 @@ export default function ImpressumPage() {
         Impressum
       </h1>
       <div className="mt-4 rounded-xl bg-vellum-raised p-4 text-sm text-ink-soft">
-        Platzhalter-Vorlage nach § 5 TMG / § 18 Abs. 2 MStV. Bitte mit den
-        tatsächlichen Unternehmensdaten füllen und rechtlich prüfen lassen,
-        bevor die Seite veröffentlicht wird.
+        Anschrift und Telefonnummer sind aktuell Platzhalterwerte (Max-
+        Mustermann-Straße / Musterhausen) und müssen vor Veröffentlichung
+        durch die echten Daten ersetzt werden. USt-IdNr. bitte ebenfalls
+        ergänzen, falls vorhanden, und die Angaben rechtlich prüfen lassen.
       </div>
 
       <div className="mt-10 space-y-8 text-sm leading-relaxed text-ink">
         <section>
           <h2 className="font-display text-lg font-bold">Angaben gemäß § 5 TMG</h2>
           <p className="mt-2">
-            [Vollständiger Name / Firmenname]
+            LuMa Digital GbR
             <br />
-            [Rechtsform, z. B. Einzelunternehmen / GmbH]
+            Gesellschaft bürgerlichen Rechts
             <br />
-            [Straße und Hausnummer]
+            Max-Mustermann-Straße 1
             <br />
-            [PLZ und Ort]
+            11111 Musterhausen
           </p>
         </section>
         <section>
           <h2 className="font-display text-lg font-bold">Vertreten durch</h2>
-          <p className="mt-2">[Name der vertretungsberechtigten Person]</p>
+          <p className="mt-2">Luca Debertin und Maximilian Heidt</p>
         </section>
         <section>
           <h2 className="font-display text-lg font-bold">Kontakt</h2>
           <p className="mt-2">
-            Telefon: [Telefonnummer]
+            Telefon: 1234567890
             <br />
-            E-Mail: [E-Mail-Adresse]
+            E-Mail: kontakt@luma-digital.de
           </p>
         </section>
         <section>
@@ -54,15 +55,20 @@ export default function ImpressumPage() {
         <section>
           <h2 className="font-display text-lg font-bold">Registereintrag</h2>
           <p className="mt-2">
-            [Handelsregister, Registergericht und Registernummer, falls
-            vorhanden]
+            Als Gesellschaft bürgerlichen Rechts ist LuMa Digital GbR nicht
+            im Handelsregister eingetragen. [Falls ein Eintrag im
+            Gesellschaftsregister besteht, hier ergänzen.]
           </p>
         </section>
         <section>
           <h2 className="font-display text-lg font-bold">
             Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
           </h2>
-          <p className="mt-2">[Name und Anschrift]</p>
+          <p className="mt-2">
+            Luca Debertin und Maximilian Heidt
+            <br />
+            Max-Mustermann-Straße 1, 11111 Musterhausen
+          </p>
         </section>
         <section>
           <h2 className="font-display text-lg font-bold">

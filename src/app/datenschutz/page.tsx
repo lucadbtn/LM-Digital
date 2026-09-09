@@ -23,17 +23,18 @@ export default function DatenschutzPage() {
         <section>
           <h2 className="font-display text-lg font-bold">1. Verantwortlicher</h2>
           <p className="mt-2">
-            [Firmenname]
+            LuMa Digital GbR, vertreten durch Luca Debertin und Maximilian
+            Heidt
             <br />
-            [Anschrift]
+            Max-Mustermann-Straße 1, 11111 Musterhausen
             <br />
-            E-Mail: [E-Mail-Adresse]
+            E-Mail: kontakt@luma-digital.de
           </p>
         </section>
         <section>
           <h2 className="font-display text-lg font-bold">2. Hosting</h2>
           <p className="mt-2">
-            Diese Website wird bei [Hosting-Anbieter eintragen] gehostet.
+            Diese Website wird bei der STRATO AG gehostet.
             Der Anbieter verarbeitet dabei automatisch Server-Logfiles, u. a.
             IP-Adresse, Datum und Uhrzeit der Anfrage, aufgerufene Seite und
             verwendeter Browser, zur Sicherstellung eines störungsfreien

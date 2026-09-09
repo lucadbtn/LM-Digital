@@ -4,10 +4,16 @@ import { Reveal } from "@/components/Reveal";
 import { DesignShowcase } from "@/components/DesignShowcase";
 import {
   EditorialDesktop,
+  EditorialMenu,
+  EditorialAbout,
   EditorialMobile,
   BoldDesktop,
+  BoldSchedule,
+  BoldTrainers,
   BoldMobile,
   CorporateDesktop,
+  CorporateFeatures,
+  CorporateTeam,
   CorporateMobile,
 } from "@/components/design-mockups";
 
@@ -24,6 +30,8 @@ const concepts = [
     desc: "Warm, ruhig und mit Liebe zum Detail. Passt zu Gastronomie, Handwerk und Marken mit Charakter.",
     screens: [
       { label: "Startseite", node: <EditorialDesktop /> },
+      { label: "Speisekarte", node: <EditorialMenu /> },
+      { label: "Über uns", node: <EditorialAbout /> },
       { label: "Mobile Ansicht", node: <EditorialMobile /> },
     ],
   },
@@ -33,6 +41,8 @@ const concepts = [
     desc: "Dunkel, kontrastreich und mit klarer Kante. Passt zu Fitness, Sport und Marken, die auffallen wollen.",
     screens: [
       { label: "Startseite", node: <BoldDesktop /> },
+      { label: "Kurse", node: <BoldSchedule /> },
+      { label: "Trainer", node: <BoldTrainers /> },
       { label: "Mobile Ansicht", node: <BoldMobile /> },
     ],
   },
@@ -42,6 +52,8 @@ const concepts = [
     desc: "Aufgeräumt, strukturiert und vertrauenswürdig. Passt zu B2B-Dienstleistern und Software-Anbietern.",
     screens: [
       { label: "Startseite", node: <CorporateDesktop /> },
+      { label: "Funktionen", node: <CorporateFeatures /> },
+      { label: "Team", node: <CorporateTeam /> },
       { label: "Mobile Ansicht", node: <CorporateMobile /> },
     ],
   },

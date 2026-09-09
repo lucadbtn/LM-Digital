@@ -32,6 +32,65 @@ export function EditorialDesktop() {
   );
 }
 
+export function EditorialMenu() {
+  const items = [
+    ["Rühreitoast", "8,50 €"],
+    ["Overnight Oats", "6,00 €"],
+    ["Avocado Sourdough", "9,50 €"],
+    ["Espresso", "3,00 €"],
+    ["Flat White", "4,20 €"],
+    ["Zitronentee", "3,50 €"],
+  ];
+  return (
+    <div className="aspect-[16/10] bg-[#efece4] p-6 text-[#2b2620] sm:p-10">
+      <div className="flex items-center justify-between">
+        <span className="font-serif text-lg italic">Café Nordlicht</span>
+        <div className="hidden gap-6 text-xs tracking-wide sm:flex">
+          <span className="border-b border-[#2b2620]">Speisekarte</span>
+          <span>Über uns</span>
+          <span>Reservieren</span>
+        </div>
+      </div>
+      <h3 className="mt-10 font-serif text-3xl sm:mt-14">Speisekarte</h3>
+      <div className="mt-8 grid grid-cols-2 gap-x-10 gap-y-3 text-sm">
+        {items.map(([name, price]) => (
+          <div key={name} className="flex items-baseline justify-between gap-3 border-b border-[#2b2620]/15 pb-2">
+            <span>{name}</span>
+            <span className="text-[#2b2620]/60">{price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function EditorialAbout() {
+  return (
+    <div className="aspect-[16/10] bg-[#efece4] p-6 text-[#2b2620] sm:p-10">
+      <div className="flex items-center justify-between">
+        <span className="font-serif text-lg italic">Café Nordlicht</span>
+        <div className="hidden gap-6 text-xs tracking-wide sm:flex">
+          <span>Speisekarte</span>
+          <span className="border-b border-[#2b2620]">Über uns</span>
+          <span>Reservieren</span>
+        </div>
+      </div>
+      <div className="mt-10 grid grid-cols-[1fr_1.3fr] gap-8 sm:mt-14">
+        <div className="rounded-lg bg-[#c7b79a]" />
+        <div>
+          <h3 className="font-serif text-2xl leading-snug sm:text-3xl">
+            Seit 2019 rösten wir unseren Kaffee selbst.
+          </h3>
+          <p className="mt-4 text-sm text-[#2b2620]/70">
+            Kleine Karte, große Sorgfalt. Wir arbeiten mit Erzeugern aus der
+            Region und wechseln die Karte mit den Jahreszeiten.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function EditorialMobile() {
   return (
     <div className="flex justify-center bg-[#efece4] py-8">
@@ -75,6 +134,67 @@ export function BoldDesktop() {
             <div className="mt-1 text-[10px] uppercase tracking-wide text-white/50">
               Wochenkurse
             </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function BoldSchedule() {
+  const rows = [
+    ["Montag", "18:00", "HIIT"],
+    ["Dienstag", "07:00", "Yoga"],
+    ["Mittwoch", "19:00", "Boxen"],
+    ["Donnerstag", "18:00", "Kraft"],
+    ["Freitag", "17:00", "HIIT"],
+  ];
+  return (
+    <div className="aspect-[16/10] bg-[#121212] p-6 text-white sm:p-10">
+      <div className="flex items-center justify-between">
+        <span className="text-lg font-extrabold uppercase tracking-tight">Pulse</span>
+        <div className="hidden gap-6 text-xs uppercase tracking-wide text-white/60 sm:flex">
+          <span className="text-[#e8a33d]">Kurse</span>
+          <span>Trainer</span>
+          <span>Preise</span>
+        </div>
+      </div>
+      <h3 className="mt-10 text-3xl font-extrabold uppercase tracking-tight sm:mt-14 sm:text-4xl">
+        Kurse
+      </h3>
+      <div className="mt-8 flex flex-col gap-2">
+        {rows.map(([day, time, name]) => (
+          <div key={day} className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-3 text-sm">
+            <span className="w-24 text-white/50">{day}</span>
+            <span className="w-16 text-white/50">{time}</span>
+            <span className="flex-1 text-right font-bold">{name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function BoldTrainers() {
+  return (
+    <div className="aspect-[16/10] bg-[#121212] p-6 text-white sm:p-10">
+      <div className="flex items-center justify-between">
+        <span className="text-lg font-extrabold uppercase tracking-tight">Pulse</span>
+        <div className="hidden gap-6 text-xs uppercase tracking-wide text-white/60 sm:flex">
+          <span>Kurse</span>
+          <span className="text-[#e8a33d]">Trainer</span>
+          <span>Preise</span>
+        </div>
+      </div>
+      <h3 className="mt-10 text-3xl font-extrabold uppercase tracking-tight sm:mt-14 sm:text-4xl">
+        Trainer
+      </h3>
+      <div className="mt-8 grid grid-cols-3 gap-4">
+        {["Jonas", "Lea", "Kim"].map((name) => (
+          <div key={name}>
+            <div className="aspect-square rounded-lg bg-white/10" />
+            <div className="mt-2 text-sm font-bold">{name}</div>
+            <div className="text-[10px] uppercase tracking-wide text-[#e8a33d]">Coach</div>
           </div>
         ))}
       </div>
@@ -128,6 +248,62 @@ export function CorporateDesktop() {
           <div key={label} className="rounded-lg bg-white p-4 shadow-sm">
             <div className="h-6 w-6 rounded bg-[#3d4ea6]/15" />
             <div className="mt-3 text-xs font-medium">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function CorporateFeatures() {
+  const features = [
+    ["Planung", "Roadmaps und Meilensteine für jedes Team"],
+    ["Zusammenarbeit", "Kommentare, Freigaben und Benachrichtigungen"],
+    ["Reporting", "Fortschritt in Echtzeit, exportierbar als PDF"],
+    ["Integrationen", "Anbindung an gängige Tools per API"],
+  ];
+  return (
+    <div className="aspect-[16/10] bg-[#eef1f6] p-6 text-[#1c2733] sm:p-10">
+      <div className="flex items-center justify-between">
+        <span className="text-base font-semibold tracking-tight">Nova Systems</span>
+        <div className="hidden gap-6 text-xs text-[#1c2733]/60 sm:flex">
+          <span className="text-[#3d4ea6]">Produkt</span>
+          <span>Lösungen</span>
+          <span>Preise</span>
+        </div>
+      </div>
+      <h3 className="mt-10 text-2xl font-semibold sm:mt-14 sm:text-3xl">Funktionen</h3>
+      <div className="mt-6 grid grid-cols-2 gap-4">
+        {features.map(([title, desc]) => (
+          <div key={title} className="rounded-lg bg-white p-4 shadow-sm">
+            <div className="text-sm font-semibold">{title}</div>
+            <div className="mt-1 text-xs text-[#1c2733]/60">{desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function CorporateTeam() {
+  return (
+    <div className="aspect-[16/10] bg-[#eef1f6] p-6 text-[#1c2733] sm:p-10">
+      <div className="flex items-center justify-between">
+        <span className="text-base font-semibold tracking-tight">Nova Systems</span>
+        <div className="hidden gap-6 text-xs text-[#1c2733]/60 sm:flex">
+          <span>Produkt</span>
+          <span className="text-[#3d4ea6]">Team</span>
+          <span>Preise</span>
+        </div>
+      </div>
+      <h3 className="mt-10 text-2xl font-semibold sm:mt-14 sm:text-3xl">
+        Ein Team, das antwortet.
+      </h3>
+      <div className="mt-8 grid grid-cols-3 gap-4">
+        {["Anna", "Ben", "Priya"].map((name) => (
+          <div key={name} className="rounded-lg bg-white p-4 shadow-sm">
+            <div className="mx-auto h-10 w-10 rounded-full bg-[#3d4ea6]/15" />
+            <div className="mt-3 text-center text-xs font-medium">{name}</div>
           </div>
         ))}
       </div>
