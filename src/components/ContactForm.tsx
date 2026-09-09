@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -73,6 +74,14 @@ export function ContactForm() {
           Sie uns direkt per E-Mail.
         </p>
       )}
+      <p className="text-xs text-ink-soft">
+        Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß
+        unserer{" "}
+        <Link href="/datenschutz" className="underline decoration-steel underline-offset-2">
+          Datenschutzerklärung
+        </Link>{" "}
+        zu.
+      </p>
     </form>
   );
 }
