@@ -32,7 +32,7 @@
   wrap.style.order = "1";
   wrap.className = "mx-auto w-full max-w-6xl px-6 md:px-10 py-24 text-center";
   wrap.innerHTML =
-    '<p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-steel">Fehler 404</p>' +
+    '<p class="font-display text-sm font-semibold uppercase text-steel" style="letter-spacing:0.2em">Fehler 404</p>' +
     '<h1 class="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Diese Seite gibt es nicht.</h1>' +
     '<p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">Die Seite, die Sie suchen, existiert nicht oder wurde verschoben. Gehen Sie zurück zur Startseite oder schreiben Sie uns direkt.</p>' +
     '<div class="mt-8 flex flex-wrap items-center justify-center gap-4">' +
