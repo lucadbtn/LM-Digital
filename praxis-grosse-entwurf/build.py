@@ -2,7 +2,7 @@
 """Erzeugt den statischen Website-Entwurf der Praxis Grosse nach site/.
 
 Aufruf: python3 build.py
-Alle Inhalte stehen in content.py; Platzhalter [[...]] werden gelb markiert.
+Alle Inhalte stehen in content.py; Platzhalter [[...]] werden gelb markiert, wenn MARKIERUNGEN = True.
 """
 import html
 import json
@@ -16,6 +16,8 @@ SITE = Path(__file__).parent / "site"
 BASE = PRAXIS["base_url"]
 # Der Entwurf darf nicht in Suchmaschinen landen. Für den Livegang auf False setzen.
 KONZEPT = True
+# Gelbe Markierungen und Hinweiskästen für offene Angaben. False zeigt eine saubere Vorschau.
+MARKIERUNGEN = False
 
 BY_SLUG = {l["slug"]: l for l in LEISTUNGEN}
 E = html.escape
@@ -104,8 +106,8 @@ def layout(path, title, desc, body, schemas=(), crumbs=None, robots=None):
         crumb_html = f'<nav class="crumbs wrap" aria-label="Brotkrumen">{sep.join(parts)}{sep}<span aria-current="page">{E(crumbs[-1][0])}</span></nav>'
 
     hours_rows = "".join(f"<tr><th scope=\"row\">{d}</th><td>{a} – {z}</td></tr>" for d, _, a, z in OEFFNUNGSZEITEN)
-    konzept = ('<div class="konzept" role="note">Entwurf, nicht die offizielle Website der Praxis Grosse. '
-               'Gelb markiert: Angaben, die die Praxis noch liefern oder bestätigen muss.</div>') if KONZEPT else ""
+    hinweis = " Gelb markiert: Angaben, die die Praxis noch liefern oder bestätigen muss." if MARKIERUNGEN else ""
+    konzept = (f'<div class="konzept" role="note">Entwurf, nicht die offizielle Website der Praxis Grosse.{hinweis}</div>') if KONZEPT else ""
 
     return f"""<!doctype html>
 <html lang="de">
@@ -197,7 +199,26 @@ def layout(path, title, desc, body, schemas=(), crumbs=None, robots=None):
 """
 
 
+def ohne_markierungen(html_text):
+    """Entfernt Platzhalter-Markierungen und alles, was dadurch leer wird."""
+    def mark(m):
+        inhalt = m.group(1)
+        return " " + inhalt if "@" in inhalt else ""
+    t = re.sub(r'\s*<mark class="tbd"[^>]*>(.*?)</mark>', mark, html_text, flags=re.S)
+    t = re.sub(r'<div class="platzhalter">.*?</div>', "", t, flags=re.S)
+    t = re.sub(r'<div><dt>[^<]*</dt><dd>\s*</dd></div>', "", t)
+    t = re.sub(r'<details class="frage"[^>]*><summary>[^<]*</summary><p>\s*</p></details>', "", t)
+    t = re.sub(r'<(p|li|td)( [^>]*)?>\s*</\1>', "", t)
+    t = re.sub(r'<tr><th scope="row">[^<]*</th></tr>', "", t)
+    t = re.sub(r'<h2( [^>]*)?>[^<]*</h2>\s*(?=<h2|</div>|</section>)', "", t)
+    t = re.sub(r'<h2( [^>]*)?>[^<]*</h2>\s*<dl>\s*</dl>', "", t)
+    t = re.sub(r'<section[^>]*>\s*</section>', "", t)
+    return t
+
+
 def write(path, content):
+    if path.endswith(".html") and not MARKIERUNGEN:
+        content = ohne_markierungen(content)
     p = SITE / path
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(content, encoding="utf-8")
@@ -614,7 +635,7 @@ def seite_kontakt():
       E-Mail {tbd(PRAXIS['email'])}
     </address>
     {zeiten_tabelle()}
-    <p class="klein">Telefonisch erreichbar {heute_tel()} <mark class="tbd">bitte bestätigen</mark>. Feiertage: <mark class="tbd">ergänzen</mark></p>
+    <p class="klein">Telefonisch erreichbar {heute_tel()}. <mark class="tbd">Telefonzeiten bestätigen, Feiertage ergänzen</mark></p>
   </section>
   <section>
     <h2>Karte</h2>
@@ -719,6 +740,7 @@ def seite_impressum():
 def seite_datenschutz():
     body = """<div class="wrap schmal recht">
 <h1>Datenschutzerklärung</h1>
+<p>Die Datenschutzerklärung wird vor dem Start der neuen Website ergänzt.</p>
 <div class="platzhalter"><p><strong>Platzhalter.</strong> Die bestehende Datenschutzerklärung muss an die neue Website angepasst werden. Gegenüber der alten Seite entfallen: WordPress-Plugins, Cookie-Banner-Dienst, Kommentarfunktion, Gravatar. Neu bzw. weiterhin zu beschreiben:</p>
 <ul>
 <li>Verantwortliche Stelle und Kontakt</li>

@@ -53,7 +53,7 @@ p, ul, ol, dl { margin: 0 0 1em; }
 
 .skip { position: absolute; left: -999px; top: 0; background: var(--tinte); color: #fff; padding: .7rem 1rem; z-index: 100; }
 .skip:focus { left: 1rem; top: 1rem; }
-.konzept { background: #fff6c2; color: var(--tinte); font-size: .95rem; padding: .45rem var(--rand); text-align: center; border-bottom: 1px solid #eadf9a; }
+.konzept { background: var(--hell); color: var(--tinte-2); font-size: .95rem; padding: .45rem var(--rand); text-align: center; border-bottom: 1px solid var(--linie); }
 mark.tbd { background: var(--gelb); color: var(--tinte); padding: .05em .3em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 
 /* ---------- Kopf ---------- */

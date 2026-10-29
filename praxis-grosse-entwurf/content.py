@@ -37,7 +37,7 @@ FREIES_TRAINING = [
     ("Dienstag", "11:15 – 12:15 und 18:30 – 20:30"),
     ("Mittwoch", "08:00 – 09:00 und 19:00 – 20:00"),
     ("Donnerstag", "09:00 – 10:00 und 16:15 – 17:15"),
-    ("Freitag", "08:00 – [[09:00 oder 14:30?]]"),
+    ("Freitag", "08:00 – 09:00 [[oder bis 14:30? Alte Website widersprüchlich]]"),
 ]
 
 KATEGORIEN = {

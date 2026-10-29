@@ -2,7 +2,7 @@
 
 Konzeptentwurf für eine neue Website von [physio-grosse.de](https://physio-grosse.de), der die Vorschläge aus dem Audit umsetzt. Es ist eine statische Website: kein WordPress, keine Plugins, keine Datenbank. Alle Inhalte stammen von der bestehenden Website. Sie sind gekürzt, korrigiert und neu gegliedert.
 
-**Das ist ein Entwurf.** Jede Seite trägt `noindex` und einen Hinweisbalken. Gelb markierte Stellen muss die Praxis noch liefern oder bestätigen.
+**Das ist ein Entwurf.** Jede Seite trägt `noindex` und einen Hinweisbalken. Offene Angaben stehen in `content.py` und `build.py` als `[[...]]` bzw. `<mark class="tbd">`. Mit `MARKIERUNGEN = True` in `build.py` erscheinen sie gelb markiert; derzeit ist der Schalter aus, damit die Vorschau sauber aussieht. Leere Angaben (z. B. Preise) fallen dann einfach weg.
 
 ## Ansehen
 
@@ -70,7 +70,7 @@ Version 1 sah zu sehr nach generierter Website aus. Version 2 nimmt die Gestaltu
 
 ## Offen: Das muss die Praxis liefern oder bestätigen
 
-Alle Stellen sind im Entwurf gelb markiert. Die wichtigsten:
+Mit `MARKIERUNGEN = True` werden alle Stellen im Entwurf gelb markiert. Die wichtigsten:
 
 1. **Telefonzeiten** vereinheitlichen (8–18 Uhr oder Mo/Fr 8–17, Di–Do 8–19 Uhr?)
 2. **Freies Training freitags:** 8–9 Uhr (Kontaktseite) oder 8–14:30 Uhr (Terminseite)?
