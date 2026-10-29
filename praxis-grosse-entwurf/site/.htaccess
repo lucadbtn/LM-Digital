@@ -1,0 +1,85 @@
+# Praxis Grosse – Apache-Konfiguration für die statische Website
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+# Nur eine Adresse: https ohne www, Testumgebung neu. leitet auf die Hauptdomain
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^(www|neu)\. [NC]
+RewriteRule ^ https://physio-grosse.de%{REQUEST_URI} [R=301,L]
+
+# Alte WordPress-Adressen
+RewriteCond %{QUERY_STRING} oceanwp_library [OR]
+RewriteCond %{QUERY_STRING} ^p=\d+
+RewriteRule ^ /? [R=301,L]
+RewriteRule ^(wp-admin|wp-login\.php|xmlrpc\.php|wp-json)(/.*)?$ - [G,L]
+RewriteRule ^angebot/klassisches-ta/krankengymnastik/?$ /leistungen/krankengymnastik.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/sportphysiotherapie/?$ /leistungen/sportphysiotherapie.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/medizinische-trainingstherapie/?$ /leistungen/medizinische-trainingstherapie.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/manuelle-therapie/?$ /leistungen/manuelle-therapie.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/kiefergelenkstherapie/?$ /leistungen/kiefergelenkstherapie.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/bobath-therapie/?$ /leistungen/bobath-therapie.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/schwindel-und-vestibulartherapie/?$ /leistungen/schwindel-und-vestibulartherapie.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/neurophysiologische-behandlung/?$ /leistungen/neurophysiologische-behandlung.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/manuelle-lymphdrainage/?$ /leistungen/manuelle-lymphdrainage.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/medizinische-massage/?$ /leistungen/medizinische-massage.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/bindegewebsmassage/?$ /leistungen/bindegewebsmassage.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/schlingentisch/?$ /leistungen/schlingentisch.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/waermeanwendung-fango/?$ /leistungen/waermeanwendung-fango.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/kryotherapie-eistherapie/?$ /leistungen/kryotherapie-eistherapie.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/elektrotherapie/?$ /leistungen/elektrotherapie.html [R=301,L]
+RewriteRule ^angebot/klassisches-ta/hausbesuche/?$ /leistungen/hausbesuche.html [R=301,L]
+RewriteRule ^angebot/kinesio-tape/?$ /leistungen/kinesio-tape.html [R=301,L]
+RewriteRule ^angebot/fussreflexzonen-therapie/?$ /leistungen/fussreflexzonen-therapie.html [R=301,L]
+RewriteRule ^angebot/hot-stone-massage/?$ /leistungen/hot-stone-massage.html [R=301,L]
+RewriteRule ^angebot/ganz-und-teilkoerpermassage/?$ /leistungen/ganz-und-teilkoerpermassage.html [R=301,L]
+RewriteRule ^angebot/sportmassage/?$ /leistungen/sportmassage.html [R=301,L]
+RewriteRule ^angebot/individuelle-trainingsplanerstellung/?$ /leistungen/individuelle-trainingsplanerstellung.html [R=301,L]
+RewriteRule ^angebot/geraetefit/?$ /leistungen/geraetefit.html [R=301,L]
+RewriteRule ^angebot/geraetezirkel/?$ /leistungen/geraetezirkel.html [R=301,L]
+RewriteRule ^angebot/technogym-kinesis-stationen/?$ /leistungen/technogym-kinesis-stationen.html [R=301,L]
+RewriteRule ^angebot/trx-training/?$ /leistungen/trx-training.html [R=301,L]
+RewriteRule ^angebot/functional-training/?$ /leistungen/functional-training.html [R=301,L]
+RewriteRule ^angebot/pilates/?$ /leistungen/pilates.html [R=301,L]
+RewriteRule ^angebot/yoga/?$ /leistungen/yoga.html [R=301,L]
+RewriteRule ^angebot/ladies-power/?$ /leistungen/ladies-power.html [R=301,L]
+RewriteRule ^angebot/seniorenfit/?$ /leistungen/seniorenfit.html [R=301,L]
+RewriteRule ^angebot/rueckenfit/?$ /leistungen/rueckenfit.html [R=301,L]
+RewriteRule ^angebot/personal-training/?$ /leistungen/personal-training.html [R=301,L]
+RewriteRule ^angebot/?$ /leistungen/ [R=301,L]
+RewriteRule ^klassisches-ta/?$ /leistungen/physiotherapie.html [R=301,L]
+RewriteRule ^tp-ergaenzungsangebot/?$ /leistungen/ergaenzende-behandlungen.html [R=301,L]
+RewriteRule ^gesundheits-plus/?$ /leistungen/kurse-training.html [R=301,L]
+RewriteRule ^angebot/(klassisches-ta|tp-ergaenzungsangebot|gesundheits-plus)/?$ /leistungen/ [R=301,L]
+RewriteRule ^praxis/?$ /praxis.html [R=301,L]
+RewriteRule ^team/?$ /team.html [R=301,L]
+RewriteRule ^kontakt/?$ /kontakt.html [R=301,L]
+RewriteRule ^terminvereinbarung/?$ /termin.html [R=301,L]
+RewriteRule ^impressum/?$ /impressum.html [R=301,L]
+RewriteRule ^datenschutz/?$ /datenschutz.html [R=301,L]
+RewriteRule ^author/.*$ / [R=301,L]
+RewriteRule ^feed/?.*$ / [R=301,L]
+RewriteRule ^comments/feed/?$ / [R=301,L]
+
+# Caching: HTML kurz, Dateien mit festem Namen lange
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 10 minutes"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/xml
+</IfModule>
+
+# Sicherheits-Header
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; frame-src https://maps.google.com https://www.google.com; script-src 'self'; style-src 'self'; font-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'self'"
+</IfModule>
