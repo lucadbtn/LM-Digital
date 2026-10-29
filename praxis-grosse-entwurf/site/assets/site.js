@@ -21,7 +21,7 @@
       return { offen: true, kurz: "Jetzt erreichbar", lang: "Jetzt telefonisch erreichbar – bis 18 Uhr." };
     }
     var morgen = werktag && j.minuten < TEL.von ? "ab 8 Uhr" : (j.tag === "Fr" || j.tag === "Sa" || j.tag === "So" ? "ab Montag, 8 Uhr" : "ab morgen, 8 Uhr");
-    return { offen: false, kurz: "Wieder " + morgen, lang: "Telefonisch wieder erreichbar " + morgen + ". Oder Sie fragen online einen Rückruf an." };
+    return { offen: false, kurz: "Wieder " + morgen + " erreichbar", lang: "Telefonisch wieder erreichbar " + morgen + ". Oder Sie fragen online einen Rückruf an." };
   }
 
   var s = telefonStatus();

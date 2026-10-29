@@ -55,12 +55,18 @@ Texte, Leistungen, Öffnungszeiten und FAQ stehen in `content.py`. Seitenvorlage
 | Barrierefreiheit per Overlay-Plugin | Barrierefrei gebaut: Schrift Atkinson Hyperlegible (für Menschen mit Sehschwäche entwickelt), 18 px Grundschrift, Fokusrahmen, Skip-Link, Schalter „Größere Schrift“, reduzierte Bewegung |
 | Google Fonts | Schriften lokal eingebunden, keine Verbindung zu Google |
 
-## Gestaltung
+## Gestaltung (Version 2)
 
-- **Farben:** Rot aus dem Logo (`#C1223A`), Schwarz wie die Team-Polos, kühles Weiß wie die Praxiswände.
-- **Drei Bereichsfarben mit Bedeutung:** Rot = auf Rezept, Pflaume = Selbstzahler, Petrol = Kurs & Training. Das Etikett zeigt auf jeder Karte und Seite, wie eine Leistung bezahlt wird.
-- **Signatur:** Die Karte „Rezept bekommen? So geht es weiter.“ sieht aus wie die rosa Heilmittelverordnung (Muster 13), die Patientinnen in der Hand halten. Sie erklärt die drei echten Schritte vom Rezept zum ersten Termin.
-- **Schriften:** Bricolage Grotesque (Überschriften), Atkinson Hyperlegible Next (Text), Atkinson Hyperlegible Mono (Zeiten, Telefonnummer). Alle unter SIL Open Font License.
+Version 1 sah zu sehr nach generierter Website aus. Version 2 nimmt die Gestaltung aus der Praxis selbst:
+
+- **Schriften von der Praxiswand:** Der rote Schriftzug „glücklich“ im Trainingsraum ist eine Pinsel-Schreibschrift, daneben steht eine humanistische Sans. Entsprechend: Yellowtail für einzelne Worte und die Mottos der Leistungen („Alles in Bewegung“, „Vom Au zum Ahhhh“), Alegreya Sans für alles andere. Beide Schriften liegen lokal, SIL Open Font License.
+- **Die Logo-Figur** (rote Pinselstrich-Figur) als Bildelement, freigestellt aus dem Original-Logo.
+- **Große Fotos statt Karten.** Das Team-Foto füllt die Startseite, die Leistungsseiten öffnen mit einem breiten Behandlungsfoto.
+- **Die Stimme der Praxis:** Ihre eigenen, schrägen Überschriften stehen wieder groß. Der Startseiten-Spruch („Mit einem Lachen geht alles leichter“) stammt aus ihren Texten.
+- **Die echte Geschichte vorn:** Gewinn bei „Das goldene Ei“ 1995, Eröffnung 1996, Umzug 2007, Osteopathie-Master 2014.
+- **Lokale Details statt Floskeln:** Parken gegenüber vom Blumenladen, Einfahrt rechts neben dem Eingang, Bahnhof Ispringen.
+- **Bezahlart als Text mit Farbpunkt** statt Etiketten: Rot = mit Rezept, Pflaume = ohne Rezept, Petrol = Kurs.
+- Bewusst weggelassen: Schreibmaschinenschrift, Großbuchstaben-Zeilen, Pillen-Buttons, Chips, nummerierte Abschnitte.
 
 ## Offen: Das muss die Praxis liefern oder bestätigen
 

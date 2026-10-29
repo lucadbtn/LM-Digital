@@ -104,8 +104,8 @@ def layout(path, title, desc, body, schemas=(), crumbs=None, robots=None):
         crumb_html = f'<nav class="crumbs wrap" aria-label="Brotkrumen">{sep.join(parts)}{sep}<span aria-current="page">{E(crumbs[-1][0])}</span></nav>'
 
     hours_rows = "".join(f"<tr><th scope=\"row\">{d}</th><td>{a} – {z}</td></tr>" for d, _, a, z in OEFFNUNGSZEITEN)
-    konzept = ('<div class="konzept" role="note">Konzeptentwurf – nicht die offizielle Website der Praxis Grosse. '
-               'Gelb markierte Stellen muss die Praxis noch liefern oder bestätigen.</div>') if KONZEPT else ""
+    konzept = ('<div class="konzept" role="note">Entwurf, nicht die offizielle Website der Praxis Grosse. '
+               'Gelb markiert: Angaben, die die Praxis noch liefern oder bestätigen muss.</div>') if KONZEPT else ""
 
     return f"""<!doctype html>
 <html lang="de">
@@ -124,8 +124,8 @@ def layout(path, title, desc, body, schemas=(), crumbs=None, robots=None):
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{BASE}/assets/img/team-jubel-1280.webp">
 <meta name="theme-color" content="#C1223A">
-<link rel="preload" href="{rel}assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{rel}assets/fonts/atkinson.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{rel}assets/fonts/AlegreyaSans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{rel}assets/fonts/AlegreyaSans-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{rel}assets/site.css">
 <link rel="icon" href="{rel}assets/img/favicon.svg" type="image/svg+xml">
 {ld}
@@ -136,12 +136,11 @@ def layout(path, title, desc, body, schemas=(), crumbs=None, robots=None):
 <header class="kopf">
   <div class="wrap kopf__innen">
     <a class="marke" href="{rel}index.html" aria-label="Praxis Grosse – zur Startseite">
-      <img src="{rel}assets/img/logo-praxis-grosse.png" width="180" height="62" alt="Praxis Grosse">
+      <img src="{rel}assets/img/logo-praxis-grosse.png" width="271" height="93" alt="Praxis Grosse">
     </a>
     <nav class="hauptnav" id="hauptnav" aria-label="Hauptnavigation"><ul>{nav}</ul></nav>
     <div class="kopf__aktion">
-      <a class="tel" href="tel:{PRAXIS['phone_href']}"><span class="status" data-status aria-live="polite"></span><span class="tel__nr">{PRAXIS['phone_display']}</span></a>
-      <a class="knopf knopf--klein" href="{rel}termin.html">Termin anfragen</a>
+      <a class="tel" href="tel:{PRAXIS['phone_href']}"><span class="tel__nr">{PRAXIS['phone_display']}</span><span class="status" data-status aria-live="polite">{heute_tel()}</span></a>
       <button class="menue" type="button" aria-expanded="false" aria-controls="hauptnav">Menü</button>
     </div>
   </div>
@@ -153,6 +152,7 @@ def layout(path, title, desc, body, schemas=(), crumbs=None, robots=None):
 <footer class="fuss">
   <div class="wrap fuss__raster">
     <div>
+      <img class="fuss__figur" src="{rel}assets/img/figur.png" width="748" height="696" alt="" loading="lazy">
       <p class="fuss__name">Praxis Grosse</p>
       <p>Physiotherapie und Osteopathie<br>{PRAXIS['street']}<br>{PRAXIS['zip']} {PRAXIS['city']}</p>
       <p><a href="tel:{PRAXIS['phone_href']}">Tel. {PRAXIS['phone_display']}</a><br>Fax {PRAXIS['fax_display']}<br>{tbd(PRAXIS['email'])}</p>
@@ -210,8 +210,8 @@ def karte(l, rel):
     return f"""<li class="karte karte--{l['kat']}">
   <a href="{rel}leistungen/{l['slug']}.html">
     {img(l['bild'], l['alt'], rel, 'karte__bild', sizes='(min-width: 960px) 25vw, (min-width: 600px) 45vw, 100vw')}
-    <span class="etikett etikett--{l['kat']}">{k['kurz']}</span>
     <span class="karte__titel">{E(l['titel'])}</span>
+    <span class="karte__motto schreib">{E(l['motto'])}</span>
     <span class="karte__text">{E(l['lead'])}</span>
   </a>
 </li>"""
@@ -219,7 +219,6 @@ def karte(l, rel):
 
 def rezeptkarte(rel):
     return f"""<aside class="rezept" aria-labelledby="rezept-titel">
-  <p class="rezept__kopf"><span>Heilmittelverordnung</span><span>Muster 13</span></p>
   <h2 id="rezept-titel" class="rezept__titel">Rezept bekommen? So geht es weiter.</h2>
   <ol class="rezept__felder">
     <li><span class="feld">Anrufen</span><span><a href="tel:{PRAXIS['phone_href']}">{PRAXIS['phone_display']}</a> · {heute_tel()}</span></li>
@@ -245,7 +244,7 @@ def schema_faq(items):
 
 
 def zeiten_tabelle():
-    rows = "".join(f'<tr><th scope="row">{d}</th><td class="mono">{a} – {z} Uhr</td></tr>' for d, _, a, z in OEFFNUNGSZEITEN)
+    rows = "".join(f'<tr><th scope="row">{d}</th><td>{a} – {z} Uhr</td></tr>' for d, _, a, z in OEFFNUNGSZEITEN)
     return f'<table class="zeiten zeiten--gross"><caption>Öffnungszeiten</caption>{rows}<tr><th scope="row">Sa, So</th><td>geschlossen</td></tr></table>'
 
 
@@ -262,98 +261,98 @@ def karte_karte():
 
 def seite_start():
     rel = ""
-    kat_html = []
-    top = {"therapie": ["krankengymnastik", "manuelle-therapie", "manuelle-lymphdrainage", "bobath-therapie", "hausbesuche"],
-           "ergaenzung": ["osteopathie", "hot-stone-massage", "sportmassage", "kinesio-tape"],
-           "plus": ["rueckenfit", "pilates", "seniorenfit", "personal-training"]}
-    for key, k in KATEGORIEN.items():
-        n = sum(1 for l in LEISTUNGEN if l["kat"] == key)
-        links = "".join(f'<li><a href="leistungen/{s}.html">{E(BY_SLUG[s]["titel"])}</a></li>' for s in top[key])
-        kat_html.append(f"""<section class="saeule saeule--{key}" aria-labelledby="s-{key}">
-  <p class="etikett etikett--{key}">{k['kurz']}</p>
-  <h3 id="s-{key}">{k['titel']}</h3>
-  <p>{E(k['intro'].split('. ')[0])}.</p>
-  <ul>{links}</ul>
-  <a class="pfeil" href="leistungen/{k['seite']}.html">Alle {n} Angebote</a>
-</section>""")
+    def liste(key):
+        return "".join(f'<li><a href="leistungen/{l["slug"]}.html">{E(l["titel"])}</a></li>'
+                       for l in LEISTUNGEN if l["kat"] == key)
+
+    team_namen = ", ".join(plain(n) for n in TEAM[1:-1]) + " und " + plain(TEAM[-1])
 
     body = f"""
-<section class="held wrap">
-  <div class="held__text">
-    <p class="dach">Praxis Grosse · Ispringen bei Pforzheim · seit {PRAXIS['since']}</p>
-    <h1>Physiotherapie und Osteopathie in Ispringen</h1>
-    <p class="lead">Therapie auf Rezept, ergänzende Behandlungen und Training unter einem Dach. Mit 16 Frauen, die dranbleiben – damit Sie es auch tun.</p>
-    <div class="knoepfe">
-      <a class="knopf" href="tel:{PRAXIS['phone_href']}">Anrufen: {PRAXIS['phone_display']}</a>
-      <a class="knopf knopf--hell" href="termin.html">Rückruf anfragen</a>
-    </div>
-    <p class="hinweis" data-status-text>Telefonisch erreichbar {heute_tel()}.</p>
-  </div>
-  {rezeptkarte(rel)}
-</section>
-
-<figure class="buehne">
-  {img('team-jubel', 'Das Team der Praxis Grosse reißt im Trainingsraum jubelnd die Arme hoch', rel, sizes='100vw', w=1280, h=853)}
-  <figcaption class="wrap">Das Team der Praxis Grosse im Trainingstherapieraum</figcaption>
-</figure>
-
-<section class="wrap abschnitt" aria-labelledby="angebot">
-  <h2 id="angebot" class="abschnitt__titel">Was wir für Sie tun</h2>
-  <p class="abschnitt__lead">Unser Angebot hat drei Teile. Das Etikett zeigt Ihnen überall auf der Website, wie eine Leistung bezahlt wird.</p>
-  <div class="saeulen">{''.join(kat_html)}</div>
-</section>
-
-<section class="band" aria-labelledby="gut">
+<section class="auftakt">
+  <figure class="auftakt__bild">
+    {img('team-jubel', 'Das Team der Praxis Grosse reißt im Trainingsraum jubelnd die Arme hoch', rel, sizes='100vw', eager=True)}
+  </figure>
   <div class="wrap">
-    <h2 id="gut" class="abschnitt__titel">Gut zu wissen, bevor Sie kommen</h2>
-    <dl class="fakten">
-      <div><dt>Früh und spät</dt><dd>Montags behandeln wir bis 20:30 Uhr, mittwochs bis 20 Uhr – ab 7 Uhr morgens.</dd></div>
-      <div><dt>Parken</dt><dd>4 Praxisparkplätze im Hof, weitere in der Bahnhofstraße. Bahnhof Ispringen liegt um die Ecke.</dd></div>
-      <div><dt>Eine Stufe</dt><dd>Die Praxis ist barrierearm. Am Eingang ist eine kleine Stufe – rufen Sie an, wir helfen.</dd></div>
-      <div><dt>Hausbesuche</dt><dd>Mit Verordnung kommen wir zu Ihnen nach Hause oder ins Pflegeheim.</dd></div>
-    </dl>
-    <p><a class="pfeil" href="kontakt.html">Anfahrt, Parken und Öffnungszeiten</a></p>
-  </div>
-</section>
-
-<section class="wrap abschnitt geteilt" aria-labelledby="osteo">
-  <div>
-    <p class="etikett etikett--ergaenzung">Selbstzahler</p>
-    <h2 id="osteo">Osteopathie bei Michaela Grosse</h2>
-    <p>Die Praxisinhaberin ist Physiotherapeutin seit Anfang der 1990er Jahre und Osteopathin mit Masterabschluss (M.Sc., Dresden International University). Viele Krankenkassen bezuschussen Osteopathie – fragen Sie bei Ihrer Kasse nach.</p>
-    <a class="pfeil" href="leistungen/osteopathie.html">Mehr zur Osteopathie</a>
-  </div>
-  {img('massage-bein', 'Therapeutin behandelt mit beiden Händen das Bein eines Patienten', rel, 'rund', w=630, h=430)}
-</section>
-
-<section class="wrap abschnitt geteilt geteilt--umgekehrt" aria-labelledby="team-t">
-  {img('team-haende', 'Viele Hände des Teams bilden auf dem Boden einen Kreis', rel, 'rund', w=1024, h=576)}
-  <div>
-    <h2 id="team-t">16 Frauen, ein Team</h2>
-    <p>Physiotherapeutinnen, Trainerinnen und Praxisorganisation, zwischen Anfang 40 und Mitte 60. Mehrere sind seit über 15 Jahren dabei, zusammen haben sie mehr als 35 Zusatzqualifikationen. Einmal pro Woche trainiert das ganze Team gemeinsam.</p>
-    <a class="pfeil" href="team.html">Das Team kennenlernen</a>
-  </div>
-</section>
-
-<section class="band band--hell" aria-labelledby="stimmen">
-  <div class="wrap">
-    <h2 id="stimmen" class="abschnitt__titel">Das sagen Patientinnen und Patienten</h2>
-    <div class="platzhalter">
-      <p><strong>Platzhalter für echte Google-Bewertungen.</strong> Hier 3 aktuelle Bewertungen mit Namenskürzel und Datum einbinden und auf das Google-Unternehmensprofil verlinken. Keine erfundenen oder gekauften Bewertungen verwenden.</p>
+    <div class="auftakt__tafel">
+      <h1 class="auftakt__h1">Physiotherapie und Osteopathie in Ispringen</h1>
+      <p class="auftakt__spruch">Mit einem Lachen geht alles <span class="schreib">leichter.</span></p>
+      <p class="auftakt__text">Seit 1996 behandeln wir in der Bahnhofstraße: mit Rezept, ohne Rezept und im Kurs. Einen Termin bekommen Sie am schnellsten am Telefon.</p>
+      <p class="auftakt__tel"><a href="tel:{PRAXIS['phone_href']}">{PRAXIS['phone_display']}</a><span data-status-text>Telefonisch erreichbar {heute_tel()}.</span></p>
+      <p><a class="knopf" href="termin.html">Rückruf anfragen</a></p>
     </div>
   </div>
 </section>
 
-<section class="wrap abschnitt schmal" aria-labelledby="fragen-t">
-  <h2 id="fragen-t" class="abschnitt__titel">Häufige Fragen</h2>
-  {faq_block(FAQ[:4], open_first=True)}
-  <p><a class="pfeil" href="fragen.html">Alle Fragen und Antworten</a></p>
+<section class="wrap geschichte" aria-labelledby="anfang">
+  <div class="geschichte__text">
+    <h2 id="anfang">Angefangen hat alles mit einer Fernsehshow</h2>
+    <p>Im Mai 1995 begleitete Michaela Grosse ihren Bruder Markus als Zuschauerin zur Show „Das goldene Ei“. Dort wurde sie aus dem Publikum als Kandidatin ausgewählt und gewann. Mit dem Gewinn erfüllte sie sich den Traum von der eigenen Praxis.</p>
+    <ol class="zeitleiste">
+      <li><span class="jahr">1996</span>Eröffnung in der Ispringer Schulstraße. Ihre Mutter Doris Krieg übernimmt die Praxisorganisation.</li>
+      <li><span class="jahr">2007</span>Umzug in die Bahnhofstraße 4, ins ganze Untergeschoss.</li>
+      <li><span class="jahr">2014</span>Master of Science in Osteopathie an der Dresden International University.</li>
+      <li><span class="jahr">Heute</span>16 Frauen, fünf Behandlungsräume, ein Trainings- und ein Gerätetherapieraum.</li>
+    </ol>
+  </div>
+  <img class="geschichte__figur" src="assets/img/figur.png" width="748" height="696" alt="" loading="lazy">
+</section>
+
+<section class="wrap angebot" aria-labelledby="angebot">
+  <h2 id="angebot">Unsere Leistungen</h2>
+  <div class="angebot__spalten">
+    <div>
+      {img('krankengymnastik', 'Therapeutin dehnt mit einem roten Theraband das Bein einer liegenden Patientin', rel, 'angebot__bild', sizes='(min-width: 900px) 33vw, 100vw')}
+      <h3><a href="leistungen/physiotherapie.html">Mit Rezept</a></h3>
+      <p>Ihre Ärztin oder Ihr Arzt verordnet, die Kasse zahlt bis auf die Zuzahlung.</p>
+      <ul class="angebot__liste">{liste('therapie')}</ul>
+    </div>
+    <div>
+      {img('hot-stone', 'Holzkasten mit glatten schwarzen Massagesteinen auf einer Behandlungsliege', rel, 'angebot__bild', sizes='(min-width: 900px) 33vw, 100vw')}
+      <h3><a href="leistungen/ergaenzende-behandlungen.html">Ohne Rezept</a></h3>
+      <p>Massagen, Osteopathie und Tape, zum Entspannen oder als Ergänzung zur Therapie.</p>
+      <ul class="angebot__liste">{liste('ergaenzung')}</ul>
+    </div>
+    <div>
+      {img('seniorenfit', 'Seniorengruppe übt mit Therabändern, eine Teilnehmerin mit Rollator', rel, 'angebot__bild', sizes='(min-width: 900px) 33vw, 100vw')}
+      <h3><a href="leistungen/kurse-training.html">Kurse und Training</a></h3>
+      <p>Damit Sie nach der Therapie fit bleiben. In kleinen Gruppen, mit Anleitung.</p>
+      <ul class="angebot__liste">{liste('plus')}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="weg" aria-labelledby="weg">
+  <div class="wrap weg__raster">
+    {img('hausbesuch', 'Das Praxisauto vor dem Eingang der Praxis Grosse in der Bahnhofstraße', rel, 'weg__bild')}
+    <div>
+      <h2 id="weg">So finden Sie uns</h2>
+      <p>Die Praxis liegt im Untergeschoss der Bahnhofstraße 4, ein paar Schritte vom Bahnhof Ispringen. Im Hof hinter dem Haus gibt es vier Parkplätze für Patienten, die Einfahrt ist rechts neben dem Eingang. Gegenüber vom Blumenladen können Sie 30 Minuten parken, an der Eisenbahnstraße ohne Zeitbegrenzung.</p>
+      <p>Am Eingang ist eine kleine Stufe. Wenn Sie dabei Hilfe brauchen, rufen Sie kurz vorher an, dann holen wir Sie ab.</p>
+      {zeiten_tabelle()}
+      <p><a href="kontakt.html">Anfahrt mit Karte</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap team-teaser" aria-labelledby="wir">
+  {img('team-gruppe', 'Gruppenbild des Teams in schwarzen Poloshirts vor dem Wandschriftzug „glücklich“', rel, 'team-teaser__bild', sizes='(min-width: 900px) 60vw, 100vw', w=1024, h=683)}
+  <div>
+    <h2 id="wir">Das sind wir</h2>
+    <p>Michaela Grosse, {E(team_namen)}.</p>
+    <p>Mehrere von uns sind seit über 15 Jahren dabei. Einmal pro Woche trainieren wir gemeinsam, damit wir wissen, wovon wir reden. Und damit die Geräte funktionieren.</p>
+    <p><a href="team.html">Mehr über das Team</a></p>
+  </div>
+</section>
+
+<section class="wrap stimmen" aria-labelledby="stimmen">
+  <h2 id="stimmen">Was Patienten über uns sagen</h2>
+  <div class="platzhalter"><p><strong>Platzhalter:</strong> Hier zwei oder drei echte Google-Bewertungen mit Vorname, Kürzel und Datum einbinden und auf das Google-Profil verlinken.</p></div>
 </section>
 """
     write("index.html", layout(
         "index.html",
         "Physiotherapie & Osteopathie in Ispringen | Praxis Grosse",
-        "Praxis Grosse in Ispringen bei Pforzheim: Physiotherapie auf Rezept, Osteopathie, Massagen, Kurse und Gerätetraining. Telefon 07231 80799 – Termine Mo–Fr.",
+        "Praxis Grosse in Ispringen bei Pforzheim: Physiotherapie mit und ohne Rezept, Osteopathie, Massagen, Kurse und Gerätetraining. Telefon 07231 80799.",
         body))
 
 
@@ -386,7 +385,7 @@ def seite_leistungen():
         items = "".join(karte(l, rel) for l in LEISTUNGEN if l["kat"] == key)
         extra = ""
         if key == "plus":
-            rows = "".join(f'<tr><th scope="row">{d}</th><td class="mono">{tbd(z)}</td></tr>' for d, z in FREIES_TRAINING)
+            rows = "".join(f'<tr><th scope="row">{d}</th><td>{tbd(z)}</td></tr>' for d, z in FREIES_TRAINING)
             extra = f'<section class="abschnitt schmal"><h2>Freies Training</h2><p>Mit Ihrem Trainingsplan trainieren Sie zu diesen Zeiten selbstständig an den Geräten:</p><table class="zeiten zeiten--gross">{rows}</table></section>'
         if key == "therapie":
             extra = f'<section class="abschnitt schmal"><h2>Fragen zum Rezept</h2>{faq_block(FAQ[:3])}</section>'
@@ -406,47 +405,51 @@ def seite_leistungen():
             crumbs=[("Start", ""), ("Leistungen", "leistungen/"), (k["titel"], f"leistungen/{k['seite']}.html")]))
 
 
+ART = {"therapie": "Mit Rezept · Die Kasse zahlt bis auf die gesetzliche Zuzahlung",
+       "ergaenzung": "Ohne Rezept · Selbstzahler-Leistung",
+       "plus": "Kurs oder Training · ohne Rezept"}
+
+
 def seite_leistung(l):
     rel = "../"
     k = KATEGORIEN[l["kat"]]
     path = f"leistungen/{l['slug']}.html"
     absaetze = "".join(f"<p>{tbd(t)}</p>" for t in l["text"])
-    bezahlung = ("Mit Verordnung: Kasse übernimmt die Kosten bis auf die gesetzliche Zuzahlung."
-                 if l["kat"] == "therapie" else "Selbstzahler-Leistung, kein Rezept nötig.")
-    fakten = [("Bezahlung", bezahlung)] + l.get("fakten", [])
-    fakten_html = "".join(f"<div><dt>{E(a)}</dt><dd>{tbd(b)}</dd></div>" for a, b in fakten)
+    fakten_html = "".join(f"<div><dt>{E(a)}</dt><dd>{tbd(b)}</dd></div>" for a, b in l.get("fakten", []))
     nicht = ""
     if l.get("nicht"):
         nicht = ('<section class="achtung" aria-labelledby="nicht"><h2 id="nicht">Nicht geeignet bei</h2><ul>'
                  + "".join(f"<li>{E(n)}</li>" for n in l["nicht"])
-                 + "</ul><p class=\"klein\">Im Zweifel sprechen wir das vor der Behandlung mit Ihnen durch.</p></section>")
-    verwandt = "".join(karte(BY_SLUG[s], rel) for s in l.get("verwandt", []))
+                 + "</ul><p class=\"klein\">Im Zweifel klären wir das vor der Behandlung mit Ihnen.</p></section>")
+    verwandt = "".join(
+        f'<li><a href="{BY_SLUG[s]["slug"]}.html">{img(BY_SLUG[s]["bild"], "", rel, "", sizes="120px")}'
+        f'<span><strong>{E(BY_SLUG[s]["titel"])}</strong><span class="schreib">{E(BY_SLUG[s]["motto"])}</span></span></a></li>'
+        for s in l.get("verwandt", []))
     ort = "" if "Ispringen" in l["titel"] else " in Ispringen"
     body = f"""<article class="wrap leistung">
   <header class="leistung__kopf">
-    <p class="etikett etikett--{l['kat']}">{k['kurz']}</p>
-    <h1>{E(l['titel'])}<span class="ort">{ort}</span></h1>
-    <p class="motto">„{E(l['motto'])}“</p>
+    <p class="leistung__motto schreib">{E(l['motto'])}</p>
+    <h1>{E(l['titel'])}{ort}</h1>
+    <p class="art art--{l['kat']}">{ART[l['kat']]}</p>
   </header>
+  <figure class="leistung__bild">{img(l['bild'], l['alt'], rel, '', sizes='(min-width: 1200px) 1150px, 100vw', eager=True)}</figure>
   <div class="leistung__raster">
     <div class="leistung__text">
-      {img(l['bild'], l['alt'], rel, 'rund', sizes='(min-width: 960px) 60vw, 100vw', eager=True)}
-      <p class="lead">{E(l['lead'])}</p>
       {absaetze}
       {nicht}
-      <p class="hwg klein">Hinweis: Wir geben kein Heilungsversprechen. Wie eine Behandlung wirkt, ist von Mensch zu Mensch verschieden.</p>
+      <p class="klein hwg">Wir geben kein Heilungsversprechen. Wie eine Behandlung wirkt, ist von Mensch zu Mensch verschieden.</p>
     </div>
-    <aside class="leistung__info" aria-label="Auf einen Blick">
-      <h2>Auf einen Blick</h2>
+    <aside class="leistung__info" aria-label="Gut zu wissen">
+      <h2>Gut zu wissen</h2>
       <dl>{fakten_html}</dl>
-      <a class="knopf knopf--voll" href="{rel}termin.html?anliegen={l['slug']}">Termin anfragen</a>
-      <a class="knopf knopf--hell knopf--voll" href="tel:{PRAXIS['phone_href']}">{PRAXIS['phone_display']}</a>
-      <p class="klein">Telefonisch {heute_tel()}</p>
+      <p class="leistung__tel">Termin: <a href="tel:{PRAXIS['phone_href']}">{PRAXIS['phone_display']}</a><br><span class="klein">{heute_tel()}</span></p>
+      <a class="knopf" href="{rel}termin.html?anliegen={l['slug']}">Rückruf anfragen</a>
     </aside>
   </div>
-  <section class="abschnitt" aria-labelledby="mehr">
+  <section class="verwandt" aria-labelledby="mehr">
     <h2 id="mehr">Passt auch dazu</h2>
-    <ul class="karten karten--drei">{verwandt}</ul>
+    <ul>{verwandt}</ul>
+    <p><a href="{k['seite']}.html">Alle Leistungen: {E(k['titel'])}</a></p>
   </section>
 </article>"""
     service = {"@context": "https://schema.org", "@type": "Service", "name": l["titel"],
