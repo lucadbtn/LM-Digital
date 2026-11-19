@@ -1,0 +1,81 @@
+<section class="section-tight">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Start</a> <span>/</span> <span>Termin anfragen</span></nav>
+    <p class="eyebrow">Termine, Termine!</p>
+    <h1 style="max-width:20ch;font-size:clamp(2.1rem,4vw,3rem);">So vereinbaren Sie Ihren Termin</h1>
+    <p class="hero-lede" style="margin-top:1rem;">Am schnellsten erreichen Sie uns telefonisch. Alternativ nutzen Sie die Terminanfrage unten — wir melden uns dann bei Ihnen zurück.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container two-col">
+    <div class="prose">
+      <h2 style="font-size:1.5rem;">Telefonisch — am schnellsten</h2>
+      <p>Rufen Sie uns unter <a href="tel:+49723180799" style="color:var(--red);font-weight:700;">07231 / 807 99</a> an oder kommen Sie direkt in der Praxis vorbei. Die Terminvereinbarung übernehmen Nicola Kunzmann, Tine Wild und Stefanie Karcher.</p>
+      <div class="info-card" style="margin-top:1.3rem;">
+        <h3>Telefonische Terminvereinbarung</h3>
+        <table class="hours-table">
+          <tr><td>Montag</td><td>08:00–18:00</td></tr>
+          <tr><td>Dienstag</td><td>08:00–18:00</td></tr>
+          <tr><td>Mittwoch</td><td>08:00–18:00</td></tr>
+          <tr><td>Donnerstag</td><td>08:00–18:00</td></tr>
+          <tr><td>Freitag</td><td>08:00–18:00</td></tr>
+        </table>
+      </div>
+      <h2 style="font-size:1.5rem;margin-top:2rem;">Was Sie mitbringen sollten</h2>
+      <ul style="list-style:disc;padding-left:1.3rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:.4rem;">
+        <li>Ihre ärztliche Verordnung (falls vorhanden)</li>
+        <li>Ihre Versichertenkarte</li>
+        <li>Bequeme Kleidung, in der Sie sich frei bewegen können</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 style="font-size:1.5rem;">Terminanfrage</h2>
+      <p class="field-hint" style="margin-bottom:1rem;">Diese Anfrage ersetzt keinen bereits vereinbarten Termin. Wir melden uns innerhalb unserer Öffnungszeiten telefonisch oder per E-Mail bei Ihnen zurück.</p>
+      <form data-contact-form novalidate>
+        <div class="form-grid">
+          <div>
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div>
+            <label for="f-phone">Telefon</label>
+            <input id="f-phone" name="phone" type="tel" required autocomplete="tel">
+          </div>
+          <div class="full">
+            <label for="f-mail">E-Mail</label>
+            <input id="f-mail" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="full">
+            <label for="f-topic">Worum geht es?</label>
+            <select id="f-topic" name="topic">
+              <option>Therapie mit Rezept</option>
+              <option>Kurs / Training ohne Rezept</option>
+              <option>Allgemeine Frage</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="f-msg">Nachricht (optional)</label>
+            <textarea id="f-msg" name="message" placeholder="Wunschzeitraum, Anliegen, Rückfragen …"></textarea>
+          </div>
+        </div>
+        <p class="field-hint" style="margin-top:.9rem;">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung dieser Anfrage zu. Details in unserer <a href="datenschutz.html" style="color:var(--red);">Datenschutzerklärung</a>.</p>
+        <button class="btn btn-primary" type="submit" style="margin-top:1.1rem;">Anfrage senden</button>
+        <p class="form-status" role="status" tabindex="-1" hidden style="margin-top:1rem;padding:.9rem 1.1rem;border-radius:var(--radius-sm);background:var(--ochre-wash);color:var(--ink);font-size:.92rem;"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="bg-raised">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h2>Lieber gleich anrufen?</h2>
+        <p>Wir sind gerne persönlich für Sie da.</p>
+      </div>
+      <a class="btn btn-primary" href="tel:+49723180799">07231 / 807 99</a>
+    </div>
+  </div>
+</section>
