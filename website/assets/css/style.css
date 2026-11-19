@@ -38,16 +38,9 @@
   --shadow-lg: 0 24px 60px rgba(58,22,14,.16);
 }
 
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --ink:#F3E9DC; --ink-soft:#CDBBA8; --paper:#1E1510; --paper-2:#2A1E16;
-    --card:#271C15; --white:#271C15; --line:#4A3A2B; --line-soft:#372A20; --red-wash:#3E2A20;
-  }
-}
-:root[data-theme="dark"]{
-  --ink:#F3E9DC; --ink-soft:#CDBBA8; --paper:#1E1510; --paper-2:#2A1E16;
-  --card:#271C15; --white:#271C15; --line:#4A3A2B; --line-soft:#372A20; --red-wash:#3E2A20;
-}
+/* Bewusst kein automatischer Dunkelmodus: die Seite soll unabhängig
+   von der Systemeinstellung der Besucherin immer gleich aussehen. */
+:root{color-scheme: light;}
 
 *,*::before,*::after{box-sizing:border-box;}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
