@@ -158,10 +158,8 @@ button{font-family:inherit;}
 /* =========================================================
    HERO — runde Fotokarte, handgezeichneter Kreis, Floating-Tag
    ========================================================= */
-.hero{position:relative;overflow:hidden;padding-top:clamp(2rem,5vw,3.5rem);}
-.hero-scribble{position:absolute;left:38%;top:8%;width:min(46vw,620px);opacity:.55;pointer-events:none;z-index:0;}
-.hero-scribble svg{width:100%;height:auto;}
-.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center;padding-bottom:clamp(2.5rem,5vw,4.5rem);}
+.hero{padding-top:clamp(2rem,5vw,3.5rem);}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center;padding-bottom:clamp(2.5rem,5vw,4.5rem);}
 .hero h1{font-size:clamp(2.1rem,4.2vw,3.3rem);margin-bottom:.4em;}
 .hero h1 em{color:var(--red-deep);}
 .hero-lede{font-size:1.14rem;color:var(--ink-soft);max-width:46ch;margin-bottom:1.7em;}
@@ -224,6 +222,9 @@ section{padding-block:clamp(2.6rem,6vw,5.2rem);}
 .fact-pair{display:flex;gap:clamp(2.5rem,6vw,5rem);flex-wrap:wrap;border-top:1px solid rgba(240,231,214,.2);padding-top:1.8rem;margin-top:.5rem;}
 .fact-pair div b{display:block;font-family:var(--font-display);font-weight:800;font-size:1.8rem;color:var(--red);margin-bottom:.2em;}
 .fact-pair div span{font-family:var(--font-display);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#CDBBA8;}
+.fact-pair--light{border-top-color:var(--line);}
+.fact-pair--light div b{color:var(--ink);}
+.fact-pair--light div span{color:var(--ink-soft);}
 
 /* FAQ */
 .faq-list{border-top:1px solid var(--line);max-width:860px;}
@@ -243,7 +244,7 @@ section{padding-block:clamp(2.6rem,6vw,5.2rem);}
 .service-card .tag{font-style:italic;color:var(--red-deep);font-weight:500;font-size:.92rem;display:block;margin-bottom:.7em;}
 .service-card p{font-size:.95rem;color:var(--ink-soft);margin-bottom:.6em;}
 .service-card p:last-child{margin-bottom:0;}
-.service-card .who{font-family:var(--font-display);font-size:.78rem;font-weight:700;color:var(--red-deep);background:var(--red-wash);display:inline-block;padding:.3em .8em;border-radius:var(--radius-full);margin-top:.5em;}
+.service-card .who{font-family:var(--font-display);font-size:.78rem;font-weight:700;color:var(--ink-soft);background:var(--paper-2);display:inline-block;padding:.3em .8em;border-radius:var(--radius-full);margin-top:.5em;}
 .service-jump{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem;}
 .service-jump a{font-size:.86rem;border:1px solid var(--line);border-radius:var(--radius-full);padding:.45em 1em;text-decoration:none;color:var(--ink-soft);background:var(--card);}
 .service-jump a:hover{border-color:var(--red);color:var(--red-deep);}
