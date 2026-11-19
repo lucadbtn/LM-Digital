@@ -73,19 +73,6 @@ def header(active):
             items.append(f'<li><a href="{href}"{cur}>{label}</a></li>')
     nav_items = "\n".join(items)
     return f"""<a class="skip-link" href="#main">Zum Inhalt springen</a>
-<div class="topbar">
-  <div class="container">
-    <div class="topbar-contact">
-      <a href="tel:{PHONE_TEL}">{PHONE_ICON} {PHONE_DISPLAY}</a>
-      <a href="mailto:{EMAIL}">{MAIL_ICON} {EMAIL}</a>
-      <span>{PIN_ICON} {ADDR_STREET}, {ADDR_CITY}</span>
-    </div>
-    <div class="topbar-legal">
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="impressum.html">Impressum</a>
-    </div>
-  </div>
-</div>
 <header class="site-header">
   <div class="container">
     <a class="brand" href="index.html">

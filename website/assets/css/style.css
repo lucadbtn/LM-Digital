@@ -91,14 +91,6 @@ button{font-family:inherit;}
 /* =========================================================
    HEADER
    ========================================================= */
-.topbar{background:var(--ink);color:var(--paper);font-family:var(--font-body);font-size:.82rem;}
-.topbar .container{display:flex;justify-content:space-between;align-items:center;padding-block:.5rem;gap:1rem;flex-wrap:wrap;}
-.topbar-contact{display:flex;gap:1.4rem;flex-wrap:wrap;}
-.topbar a{text-decoration:none;opacity:.88;}
-.topbar a:hover{opacity:1;text-decoration:underline;}
-.topbar-legal{display:flex;gap:1.1rem;}
-@media (max-width:680px){ .topbar{display:none;} }
-
 .site-header{position:sticky;top:0;z-index:200;background:rgba(251,245,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
 .site-header .container{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:.9rem;}
 .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink);}
